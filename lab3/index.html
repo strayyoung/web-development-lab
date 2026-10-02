@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Оюутны цахим анкет</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<!-- External CSS -->
+<link rel="stylesheet" href="style.css">
+```
+
+</head>
+
+<body>
+
+```
+<!-- Толгой хэсэг -->
+<header class="site-header">
+
+    <div class="header-content">
+
+        <div class="header-title">
+            <span class="header-icon">✦</span>
+
+            <div>
+                <h1>Оюутны цахим анкет</h1>
+                <p>Student Digital Profile</p>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Нүүр</a></li>
+                <li><a href="#profile">Анкет</a></li>
+                <li><a href="#interest">Сонирхол</a></li>
+                <li><a href="#grades">Дүн</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- Үндсэн хэсэг -->
+<main>
+
+    <article id="profile" class="profile-card">
+
+        <!-- Lab 03 badge -->
+        <div class="lab-badge">
+            LAB 03
+        </div>
+
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span class="section-number">01</span>
+
+                <div>
+                    <h2>Хувийн танилцуулга</h2>
+                    <p>Өөрийн мэдээллээ оруулж анкетаа бөглөнө үү.</p>
+                </div>
+            </div>
+
+            <div class="intro">
+                <span class="intro-icon">💡</span>
+
+                <p>
+                    Энэхүү анкет нь оюутны хувийн мэдээлэл,
+                    боловсрол, сонирхол болон ур чадварыг
+                    цахим хэлбэрээр бүртгэх зориулалттай.
+                </p>
+            </div>
+
+
+            <form action="#" method="GET" enctype="multipart/form-data">
+
+                <!-- Хувийн мэдээлэл -->
+                <fieldset class="form-fieldset">
+
+                    <legend>1. Хувийн мэдээлэл</legend>
+
+                    <div class="student-info">
+
+                        <div class="form-group">
+                            <label for="lastname">Овог:</label>
+
+                            <input
+                                type="text"
+                                id="lastname"
+                                name="lastname"
+                                placeholder="Ганзориг"
+                                required
+                                minlength="2"
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="firstname">Нэр:</label>
+
+                            <input
+                                type="text"
+                                id="firstname"
+                                name="firstname"
+                                placeholder="Баасанхүү"
+                                required
+                                minlength="2"
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="email">Цахим хаяг:</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="example@gmail.com"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="phone">Утасны дугаар:</label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="88112233"
+                            pattern="[0-9]{8}"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="birthdate">Төрсөн огноо:</label>
+
+                        <input
+                            type="date"
+                            id="birthdate"
+                            name="birthdate"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Хүйс:</label>
+
+                        <div class="radio-group">
+
+                            <label class="choice-label">
+                                <input
+                                    type="radio"
+                                    id="male"
+                                    name="gender"
+                                    value="male"
+                                >
+                                <span>Эрэгтэй</span>
+                            </label>
+
+
+                            <label class="choice-label">
+                                <input
+                                    type="radio"
+                                    id="female"
+                                    name="gender"
+                                    value="female"
+                                >
+                                <span>Эмэгтэй</span>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- Боловсрол -->
+                <fieldset class="form-fieldset">
+
+                    <legend>2. Боловсролын мэдээлэл</legend>
+
+                    <div class="form-group">
+
+                        <label for="school">
+                            Сургууль:
+                        </label>
+
+                        <input
+                            type="text"
+                            id="school"
+                            name="school"
+                            value="ШУТИС - Мэдээлэл холбооны технологийн сургууль"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="major">
+                            Мэргэжил:
+                        </label>
+
+                        <input
+                            type="text"
+                            id="major"
+                            name="major"
+                            value="Өгөгдлийн ухаан"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="course">
+                            Суралцаж буй курс:
+                        </label>
+
+                        <select
+                            id="course"
+                            name="course"
+                            required
+                        >
+
+                            <option value="">
+                                -- Сонгоно уу --
+                            </option>
+
+                            <option value="1">
+                                1-р курс
+                            </option>
+
+                            <option value="2" selected>
+                                2-р курс
+                            </option>
+
+                            <option value="3">
+                                3-р курс
+                            </option>
+
+                            <option value="4">
+                                4-р курс
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- Технологи ба ур чадвар -->
+                <fieldset class="form-fieldset">
+
+                    <legend>3. Технологи ба ур чадвар</legend>
+
+                    <p class="field-description">
+                        Сонирхож буй технологиудаа сонгоно уу:
+                    </p>
+
+
+                    <div class="checkbox-group">
+
+                        <label class="choice-label">
+                            <input
+                                type="checkbox"
+                                id="html"
+                                name="technology"
+                                value="HTML"
+                            >
+                            <span>HTML / CSS</span>
+                        </label>
+
+
+                        <label class="choice-label">
+                            <input
+                                type="checkbox"
+                                id="python"
+                                name="technology"
+                                value="Python"
+                            >
+                            <span>Python</span>
+                        </label>
+
+
+                        <label class="choice-label">
+                            <input
+                                type="checkbox"
+                                id="java"
+                                name="technology"
+                                value="Java"
+                            >
+                            <span>Java</span>
+                        </label>
+
+
+                        <label class="choice-label">
+                            <input
+                                type="checkbox"
+                                id="r"
+                                name="technology"
+                                value="R"
+                            >
+                            <span>R</span>
+                        </label>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="english">
+                            Англи хэлний түвшин:
+                        </label>
+
+                        <select
+                            id="english"
+                            name="english"
+                        >
+
+                            <option value="beginner">
+                                Анхан шат
+                            </option>
+
+                            <option value="intermediate">
+                                Дунд шат
+                            </option>
+
+                            <option value="advanced">
+                                Ахисан шат
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- Сонирхол -->
+                <fieldset class="form-fieldset">
+
+                    <legend>4. Сонирхол болон хобби</legend>
+
+                    <div class="form-group">
+
+                        <label for="hobby">
+                            Хобби:
+                        </label>
+
+                        <input
+                            type="text"
+                            id="hobby"
+                            name="hobby"
+                            placeholder="Жишээ: Спорт, хөгжим..."
+                            minlength="2"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="bio">
+                            Өөрийн тухай:
+                        </label>
+
+                        <textarea
+                            id="bio"
+                            name="bio"
+                            rows="5"
+                            placeholder="Өөрийнхөө тухай товч танилцуулна уу..."
+                            minlength="10"
+                        ></textarea>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- Файл -->
+                <fieldset class="form-fieldset profile-upload">
+
+                    <legend>5. Профайл мэдээлэл</legend>
+
+                    <div class="form-group">
+
+                        <label for="avatar">
+                            Профайл зураг:
+                        </label>
+
+                        <input
+                            type="file"
+                            id="avatar"
+                            name="avatar"
+                            accept="image/*"
+                        >
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- Tooltip example -->
+                <div class="help-box">
+
+                    <span class="help-icon">?</span>
+
+                    <div class="help-text">
+                        Формыг илгээхийн өмнө оруулсан мэдээллээ
+                        шалгана уу.
+                    </div>
+
+                </div>
+
+
+                <!-- Илгээх товчнууд -->
+                <div class="button-group">
+
+                    <button
+                        type="submit"
+                        class="form-button submit-btn"
+                    >
+                        <span>✓</span>
+                        Анкет илгээх
+                    </button>
+
+
+                    <button
+                        type="reset"
+                        class="form-button reset-btn"
+                    >
+                        <span>↻</span>
+                        Дахин эхлүүлэх
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </article>
+
+
+    <!-- Сонирхол -->
+    <section id="interest" class="content-card">
+
+        <div class="section-heading">
+
+            <span class="section-number">02</span>
+
+            <div>
+                <h2>Миний сонирхол</h2>
+                <p>Чөлөөт цагаараа хийх дуртай зүйлс</p>
+            </div>
+
+        </div>
+
+
+        <ul class="interest-list">
+
+            <li>
+                <span>01</span>
+                Веб хөгжүүлэлт
+            </li>
+
+            <li>
+                <span>02</span>
+                Програмчлал
+            </li>
+
+            <li>
+                <span>03</span>
+                Спорт, ялангуяа волейбол
+            </li>
+
+            <li>
+                <span>04</span>
+                Шинэ технологи судлах
+            </li>
+
+            <li>
+                <span>05</span>
+                Кино болон анимэ үзэх
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- Дүн -->
+    <section id="grades" class="content-card">
+
+        <div class="section-heading">
+
+            <span class="section-number">03</span>
+
+            <div>
+                <h2>Миний дүн</h2>
+                <p>Суралцаж буй хичээлүүдийн үнэлгээ</p>
+            </div>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>№</th>
+                        <th>Хичээл</th>
+                        <th>Дүн</th>
+                        <th>Үнэлгээ</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Веб зохиомж</td>
+                        <td class="grade">95</td>
+                        <td>Маш сайн</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>2</td>
+                        <td>Мэдээллийн сан</td>
+                        <td class="grade">88</td>
+                        <td>Сайн</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>3</td>
+                        <td>Алгоритм</td>
+                        <td class="grade">92</td>
+                        <td>Маш сайн</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- Хөл хэсэг -->
+<footer class="site-footer">
+
+    <p>
+        &copy; 2026 Веб зохиомж хичээл
+    </p>
+
+    <p>
+        Оюутны цахим анкет | Lab 03
+    </p>
+
+</footer>
+```
+
+</body>
+
+</html>

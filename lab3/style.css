@@ -1,0 +1,713 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Үндсэн хувьсагчид */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #eff6ff;
+    --dark: #0f172a;
+    --text: #334155;
+    --text-light: #64748b;
+    --border: #dbe3ef;
+    --background: #f4f7fb;
+    --white: #ffffff;
+}
+
+/* BODY */
+body {
+    font-family: "Inter", sans-serif;
+    background:
+        radial-gradient(
+            circle at 0% 0%,
+            rgba(37, 99, 235, 0.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 100% 20%,
+            rgba(59, 130, 246, 0.08),
+            transparent 30%
+        ),
+        var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.site-header {
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: white;
+    padding: 22px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 5px 25px rgba(15, 23, 42, 0.20);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.header-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    border-radius: 14px;
+    font-size: 24px;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.header-title h1 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.header-title p {
+    font-size: 11px;
+    color: #bfdbfe;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+}
+
+.main-nav a {
+    display: block;
+    color: #dbeafe;
+    text-decoration: none;
+    padding: 9px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.main-nav a:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   MAIN
+   ========================================= */
+
+main {
+    max-width: 1050px;
+    margin: 45px auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   CARD
+   ========================================= */
+
+.profile-card,
+.content-card {
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid rgba(219, 227, 239, 0.8);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    margin-bottom: 28px;
+}
+
+.profile-card {
+    position: relative;
+    padding: 35px;
+}
+
+.content-card {
+    padding: 35px;
+    transition: 0.25s ease;
+}
+
+.content-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
+}
+
+/* =========================================
+   LAB BADGE
+   relative / absolute
+   ========================================= */
+
+.lab-badge {
+    position: absolute;
+    top: -14px;
+    right: 30px;
+    padding: 7px 16px;
+    background: linear-gradient(135deg, #2563eb, #6366f1);
+    color: white;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.30);
+}
+
+/* =========================================
+   SECTION HEADING
+   ========================================= */
+
+.section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.section-number {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.section-heading h2 {
+    color: var(--dark);
+    font-size: 23px;
+    font-weight: 800;
+    margin-bottom: 3px;
+}
+
+.section-heading p {
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+/* =========================================
+   INTRO
+   ========================================= */
+
+.intro {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    background: linear-gradient(135deg, #eff6ff, #f8fbff);
+    border-left: 4px solid var(--primary);
+    padding: 17px 18px;
+    margin-bottom: 28px;
+    border-radius: 0 12px 12px 0;
+    color: #475569;
+    font-size: 13px;
+}
+
+.intro-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   FIELDSET
+   ========================================= */
+
+.form-fieldset {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 22px;
+    background: #ffffff;
+    transition: 0.25s ease;
+}
+
+.form-fieldset:hover {
+    border-color: #bfdbfe;
+    box-shadow: 0 5px 20px rgba(37, 99, 235, 0.05);
+}
+
+.form-fieldset legend {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--primary);
+    padding: 0 10px;
+    background: white;
+}
+
+/* =========================================
+   FORM GROUP
+   ========================================= */
+
+.form-group {
+    margin-bottom: 19px;
+    position: relative;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group > label {
+    display: block;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+/* =========================================
+   INPUT
+   ========================================= */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: #1e293b;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: 0.25s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.10);
+    transform: translateY(-1px);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* =========================================
+   STUDENT INFO
+   ========================================= */
+
+.student-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+/* =========================================
+   RADIO / CHECKBOX
+   ========================================= */
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.choice-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.choice-label:hover {
+    background: var(--primary-light);
+    border-color: #93c5fd;
+    transform: translateY(-2px);
+}
+
+.choice-label input {
+    width: auto !important;
+    margin: 0 !important;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+/* =========================================
+   DESCRIPTION
+   ========================================= */
+
+.field-description {
+    color: var(--text-light);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/* =========================================
+   FILE
+   ========================================= */
+
+.profile-upload input[type="file"] {
+    padding: 10px;
+    background: #f8fafc;
+    cursor: pointer;
+}
+
+.profile-upload input[type="file"]::file-selector-button {
+    border: none;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 8px 13px;
+    border-radius: 8px;
+    margin-right: 10px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* =========================================
+   TOOLTIP
+   ========================================= */
+
+.help-box {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 0 22px;
+}
+
+.help-icon {
+    width: 27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 800;
+    cursor: help;
+}
+
+.help-text {
+    position: absolute;
+    right: 0;
+    bottom: 38px;
+    width: 270px;
+    padding: 12px 14px;
+    background: var(--dark);
+    color: white;
+    border-radius: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.20);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+    transition: 0.2s ease;
+    pointer-events: none;
+}
+
+.help-text::after {
+    content: "";
+    position: absolute;
+    right: 7px;
+    bottom: -6px;
+    width: 12px;
+    height: 12px;
+    background: var(--dark);
+    transform: rotate(45deg);
+}
+
+.help-box:hover .help-text {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.button-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.form-button {
+    border: none;
+    border-radius: 12px;
+    padding: 13px 22px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.2s ease;
+}
+
+.form-button:hover {
+    transform: translateY(-2px);
+}
+
+.form-button:active {
+    transform: scale(0.98);
+}
+
+.submit-btn {
+    flex: 1;
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: white;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.submit-btn:hover {
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
+}
+
+.reset-btn {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+.reset-btn:hover {
+    background: #e2e8f0;
+}
+
+/* =========================================
+   INTEREST LIST
+   ========================================= */
+
+.interest-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.interest-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.interest-list li:hover {
+    border-color: #93c5fd;
+    background: var(--primary-light);
+    transform: translateX(4px);
+}
+
+.interest-list li span {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: white;
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+/* =========================================
+   TABLE
+   ========================================= */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    font-size: 13px;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: white;
+    font-weight: 700;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr {
+    background: white;
+    transition: 0.2s ease;
+}
+
+tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+tbody tr:hover {
+    background: #eff6ff;
+}
+
+.grade {
+    color: var(--primary);
+    font-weight: 800;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.site-footer {
+    background: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 28px 20px;
+    margin-top: 50px;
+    font-size: 12px;
+}
+
+.site-footer p:first-child {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 750px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+    }
+
+    .student-info {
+        grid-template-columns: 1fr;
+    }
+
+    .interest-list {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card,
+    .content-card {
+        padding: 25px 20px;
+    }
+
+    .form-fieldset {
+        padding: 20px 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    main {
+        margin: 30px auto;
+        padding: 0 12px;
+    }
+
+    .site-header {
+        padding: 18px 15px;
+    }
+
+    .header-title h1 {
+        font-size: 18px;
+    }
+
+    .main-nav ul {
+        gap: 4px;
+    }
+
+    .main-nav a {
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+
+    .section-heading h2 {
+        font-size: 19px;
+    }
+
+    .section-number {
+        width: 38px;
+        height: 38px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .form-button {
+        width: 100%;
+    }
+
+    .lab-badge {
+        right: 20px;
+    }
+}
