@@ -1,4 +1,7 @@
-/* Үндсэн тохиргоо */
+
+/* ==============================
+   1. ҮНДСЭН ТОХИРГОО
+================================ */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -27,6 +30,10 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
+button {
+    font-family: inherit;
+}
+
 img {
     max-width: 100%;
 }
@@ -38,6 +45,51 @@ img {
     width: 100%;
 }
 
+/* ==============================
+   2. DEVICE PREVIEW
+================================ */
+.device-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px;
+    background: #ffffff;
+    border-bottom: 1px solid #e3e7f2;
+}
+
+.preview-label {
+    color: #17213d;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.device-button {
+    padding: 9px 15px;
+    border: 1px solid #d9dcef;
+    border-radius: 9px;
+    background: #f3f5fb;
+    color: #17213d;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.device-button:hover {
+    border-color: #7545df;
+    color: #7545df;
+}
+
+.device-button.active {
+    background: #6534ed;
+    border-color: #6534ed;
+    color: white;
+}
+
+/* ==============================
+   3. HEADER AND NAVIGATION
+================================ */
 .header {
     display: flex;
     flex-direction: column;
@@ -96,6 +148,9 @@ img {
     white-space: nowrap;
 }
 
+/* ==============================
+   4. HERO SECTION
+================================ */
 .hero {
     position: relative;
     display: flex;
@@ -216,6 +271,7 @@ img {
     font-size: 12px;
 }
 
+/* Hero visual card */
 .hero-visual {
     display: flex;
     align-items: center;
@@ -301,7 +357,9 @@ img {
     font-size: 12px;
 }
 
-/* Үндсэн контент */
+/* ==============================
+   5. DASHBOARD AND COURSES
+================================ */
 .dashboard {
     display: flex;
     flex-direction: column;
@@ -489,7 +547,9 @@ img {
     font-size: 20px;
 }
 
-/* Материал */
+/* ==============================
+   6. RESOURCES
+================================ */
 .resource-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -541,7 +601,9 @@ img {
     font-size: 20px;
 }
 
-/* Хажуугийн хэсэг */
+/* ==============================
+   7. SIDEBAR
+================================ */
 .sidebar {
     align-self: start;
     width: 100%;
@@ -642,7 +704,9 @@ img {
     font-size: 12px;
 }
 
-/* Төгсгөлийн хэсэг */
+/* ==============================
+   8. ABOUT AND FOOTER
+================================ */
 .about {
     padding: 45px 5%;
     background: #eae7ff;
@@ -679,7 +743,9 @@ img {
     font-size: 12px;
 }
 
-/* Tablet */
+/* ==============================
+   9. TABLET
+================================ */
 @media (min-width: 551px) {
     .header {
         flex-direction: row;
@@ -736,10 +802,7 @@ img {
         padding: 40px 5%;
     }
 
-    .course-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
+    .course-grid,
     .resource-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -758,7 +821,9 @@ img {
     }
 }
 
-/* Desktop */
+/* ==============================
+   10. DESKTOP
+================================ */
 @media (min-width: 851px) {
     .header {
         padding: 18px 7%;
@@ -812,7 +877,9 @@ img {
     }
 }
 
-/* Жижиг дэлгэцийн нэмэлт хамгаалалт */
+/* ==============================
+   11. MOBILE
+================================ */
 @media (max-width: 550px) {
     .header {
         gap: 12px;
@@ -860,18 +927,25 @@ img {
     }
 }
 
-/* Маш жижиг утас */
-@media (max-width: 350px) {
-    .header,
-    .hero,
-    .dashboard,
-    .footer {
-        padding-left: 16px;
-        padding-right: 16px;
+/* Жижиг гар утас */
+@media (max-width: 480px) {
+    .device-preview {
+        gap: 6px;
+        padding: 10px 5px;
+    }
+
+    .preview-label {
+        width: 100%;
+        text-align: center;
+    }
+
+    .device-button {
+        padding: 8px 11px;
+        font-size: 12px;
     }
 
     .hero h1 {
-        font-size: 32px;
+        font-size: 34px;
     }
 
     .hero-buttons {
@@ -891,5 +965,173 @@ img {
 
     .course-card {
         padding: 16px;
+    }
+
+    .visual-card {
+        padding: 22px;
+    }
+
+    .footer {
+        overflow-wrap: anywhere;
+    }
+}
+
+/* Маш жижиг дэлгэц */
+@media (max-width: 350px) {
+    .header,
+    .hero,
+    .dashboard,
+    .footer {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .section-heading h2,
+    .about h2 {
+        font-size: 21px;
+    }
+
+    .device-button {
+        padding: 7px 9px;
+    }
+}
+
+/* ==============================
+   12. DEVICE PREVIEW MODE
+================================ */
+
+/* Mobile preview */
+body.preview-mobile .header,
+body.preview-mobile main,
+body.preview-mobile .footer {
+    width: 100%;
+    max-width: 390px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.preview-mobile .header,
+body.preview-mobile .footer {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+body.preview-mobile .nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+}
+
+body.preview-mobile .hero {
+    flex-direction: column;
+    padding: 35px 20px;
+}
+
+body.preview-mobile .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+body.preview-mobile .dashboard {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px;
+}
+
+body.preview-mobile .course-grid,
+body.preview-mobile .resource-grid {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+body.preview-mobile .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+body.preview-mobile .sidebar {
+    position: static;
+}
+
+body.preview-mobile .about {
+    padding: 35px 20px;
+}
+
+/* Tablet preview */
+body.preview-tablet .header,
+body.preview-tablet main,
+body.preview-tablet .footer {
+    width: 100%;
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.preview-tablet .header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+body.preview-tablet .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+}
+
+body.preview-tablet .hero {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 45px 25px;
+}
+
+body.preview-tablet .hero-content,
+body.preview-tablet .hero-visual {
+    flex: 1;
+    min-width: 0;
+}
+
+body.preview-tablet .hero-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+body.preview-tablet .dashboard {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 25px;
+}
+
+body.preview-tablet .course-grid,
+body.preview-tablet .resource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.preview-tablet .sidebar {
+    position: static;
+}
+
+body.preview-tablet .footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Preview жижиг дэлгэцэнд багтах */
+@media (max-width: 420px) {
+    .device-preview {
+        gap: 6px;
+        padding: 10px 5px;
+    }
+
+    .preview-label {
+        width: 100%;
+        text-align: center;
     }
 }

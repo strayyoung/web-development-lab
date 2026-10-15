@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="mn">
 <head>
@@ -7,6 +8,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Device Preview -->
+    <div class="device-preview">
+        <span class="preview-label">Дэлгэцийн харагдац:</span>
+        <button class="device-button active" data-device="desktop">Desktop</button>
+        <button class="device-button" data-device="tablet">Tablet</button>
+        <button class="device-button" data-device="mobile">Mobile</button>
+    </div>
 
     <header class="header" id="home">
         <a href="#home" class="logo">
@@ -74,6 +83,7 @@
 
         <section class="dashboard">
             <div class="main-content">
+
                 <section class="courses" id="courses">
                     <div class="section-heading">
                         <div>
@@ -157,6 +167,7 @@
                         </article>
                     </div>
                 </section>
+
             </div>
 
             <aside class="sidebar">
@@ -200,6 +211,31 @@
         <p>Суралц. Хөгж. Бүтээ.</p>
         <span>© 2026 Student Hub</span>
     </footer>
+
+    <!-- Device Preview JavaScript -->
+    <script>
+        const buttons = document.querySelectorAll(".device-button");
+
+        buttons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                document.body.classList.remove(
+                    "preview-desktop",
+                    "preview-tablet",
+                    "preview-mobile"
+                );
+
+                document.body.classList.add(
+                    "preview-" + button.dataset.device
+                );
+
+                buttons.forEach(function(item) {
+                    item.classList.remove("active");
+                });
+
+                button.classList.add("active");
+            });
+        });
+    </script>
 
 </body>
 </html>
