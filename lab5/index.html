@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="mn">
 <head>
@@ -8,14 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Device Preview -->
-    <div class="device-preview">
-        <span class="preview-label">Дэлгэцийн харагдац:</span>
-        <button class="device-button active" data-device="desktop">Desktop</button>
-        <button class="device-button" data-device="tablet">Tablet</button>
-        <button class="device-button" data-device="mobile">Mobile</button>
-    </div>
 
     <header class="header" id="home">
         <a href="#home" class="logo">
@@ -212,29 +203,192 @@
         <span>© 2026 Student Hub</span>
     </footer>
 
-    <!-- Device Preview JavaScript -->
+    <!-- Төхөөрөмжөөр харах (CSS + JS нэг дор) -->
     <script>
-        const buttons = document.querySelectorAll(".device-button");
+    (function () {
+        // iframe дотор ажиллаж байвал товчийг дахин үүсгэхгүй
+        if (new URLSearchParams(location.search).has("preview") || window.self !== window.top) return;
 
-        buttons.forEach(function(button) {
-            button.addEventListener("click", function() {
-                document.body.classList.remove(
-                    "preview-desktop",
-                    "preview-tablet",
-                    "preview-mobile"
-                );
+        /* ---------- CSS ---------- */
+        var css = `
+        .dp-fab{position:fixed;right:22px;bottom:22px;z-index:99998;display:flex;align-items:center;gap:10px;
+            padding:12px 18px 12px 14px;border:1px solid rgba(255,255,255,.18);border-radius:999px;cursor:pointer;
+            font:600 14px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#fff;
+            background:linear-gradient(135deg,#6d3cf0,#9b4dff);box-shadow:0 10px 30px rgba(109,60,240,.45);
+            transition:transform .2s,box-shadow .2s}
+        .dp-fab:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(109,60,240,.6)}
+        .dp-fab svg{flex:none}
 
-                document.body.classList.add(
-                    "preview-" + button.dataset.device
-                );
+        .dp-overlay{position:fixed;top:0;right:0;bottom:0;left:0;z-index:99999;display:flex;flex-direction:column;align-items:center;
+            background:radial-gradient(circle at 50% 0%,rgba(109,60,240,.35),rgba(5,8,26,.95) 60%);
+            backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+            opacity:0;pointer-events:none;transition:opacity .3s;
+            font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+        .dp-overlay.open{opacity:1;pointer-events:auto}
 
-                buttons.forEach(function(item) {
-                    item.classList.remove("active");
-                });
+        .dp-bar{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;width:100%;padding:18px 16px 8px}
+        .dp-seg{display:flex;gap:4px;padding:5px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+        .dp-seg button{display:flex;align-items:center;gap:8px;padding:9px 16px;border:0;border-radius:999px;cursor:pointer;
+            background:transparent;color:#c9c5e8;font-size:14px;font-weight:600;line-height:1;font-family:inherit;transition:.2s}
+        .dp-seg button:hover{color:#fff}
+        .dp-seg button.active{background:linear-gradient(135deg,#6d3cf0,#9b4dff);color:#fff;box-shadow:0 4px 16px rgba(109,60,240,.5)}
+        .dp-size{min-width:90px;color:#a79fd6;font-size:13px}
+        .dp-close{position:absolute;right:20px;top:18px;display:grid;place-items:center;width:40px;height:40px;
+            border:1px solid rgba(255,255,255,.15);border-radius:50%;background:rgba(255,255,255,.08);color:#fff;cursor:pointer;transition:.2s}
+        .dp-close:hover{background:rgba(255,255,255,.18);transform:rotate(90deg)}
 
-                button.classList.add("active");
-            });
+        .dp-stage{flex:1;display:flex;align-items:center;justify-content:center;width:100%;padding:10px 20px 20px;overflow:hidden}
+        .dp-holder{position:relative;flex:none;transition:width .4s cubic-bezier(.2,.8,.2,1),height .4s cubic-bezier(.2,.8,.2,1)}
+        .dp-device{position:absolute;left:0;top:0;transform-origin:top left;background:#0b0d1f;
+            box-shadow:0 0 0 2px #2a2d4a,0 0 0 3px #0a0b18,0 40px 90px rgba(0,0,0,.6),0 0 80px rgba(109,60,240,.25);
+            transition:width .4s cubic-bezier(.2,.8,.2,1),height .4s cubic-bezier(.2,.8,.2,1),border-radius .4s,padding .4s}
+        .dp-screen{position:relative;width:100%;height:100%;background:#fff;overflow:hidden}
+        .dp-screen iframe{display:block;width:100%;height:100%;border:0;background:#fff}
+
+        .dp-device.mobile::before{content:"";position:absolute;top:calc(var(--b) + 11px);left:50%;transform:translateX(-50%);
+            width:112px;height:32px;border-radius:20px;background:#000;z-index:3}
+        .dp-device.mobile::after{content:"";position:absolute;left:-5px;top:150px;width:4px;height:60px;border-radius:3px 0 0 3px;
+            background:#2a2d4a;box-shadow:0 80px 0 #2a2d4a,0 150px 0 #2a2d4a}
+        .dp-device.tablet::before{content:"";position:absolute;top:calc(var(--b)/2 - 3px);left:50%;transform:translateX(-50%);
+            width:6px;height:6px;border-radius:50%;background:#1d2040;z-index:3}
+
+        .dp-stand{position:absolute;left:50%;top:100%;transform:translateX(-50%);display:none;flex-direction:column;align-items:center}
+        .dp-device.desktop .dp-stand{display:flex}
+        .dp-stand i{display:block;width:150px;height:60px;background:linear-gradient(#1a1c36,#0d0f22);clip-path:polygon(25% 0,75% 0,85% 100%,15% 100%)}
+        .dp-stand b{display:block;width:300px;height:10px;border-radius:6px;background:#1a1c36;box-shadow:0 8px 20px rgba(0,0,0,.5)}
+
+        @media (max-width:640px){
+            .dp-size,.dp-seg button span{display:none}
+            .dp-seg button{padding:10px 14px}
+            .dp-bar{justify-content:flex-start;padding-left:12px}
+            .dp-close{top:16px;right:12px}
+            .dp-fab span{display:none}
+            .dp-fab{padding:14px}
+        }`;
+
+        var styleTag = document.createElement("style");
+        styleTag.textContent = css;
+        document.head.appendChild(styleTag);
+
+        /* ---------- Тохиргоо ---------- */
+        var DEVICES = {
+            desktop: { label: "Desktop", w: 1440, h: 900,  bezel: 14, radius: 18 },
+            tablet:  { label: "Tablet",  w: 820,  h: 1180, bezel: 18, radius: 38 },
+            mobile:  { label: "Mobile",  w: 390,  h: 844,  bezel: 13, radius: 54 }
+        };
+
+        var ICONS = {
+            desktop: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12.5" rx="2"/><path d="M8 20.5h8M12 16.5v4"/></svg>',
+            tablet:  '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2.5" width="15" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>',
+            mobile:  '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>',
+            close:   '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>'
+        };
+
+        /* ---------- Товч ---------- */
+        var fab = document.createElement("button");
+        fab.className = "dp-fab";
+        fab.setAttribute("aria-label", "Төхөөрөмжөөр харах");
+        fab.innerHTML = ICONS.mobile + "<span>Төхөөрөмжөөр харах</span>";
+        document.body.appendChild(fab);
+
+        /* ---------- Цонх ---------- */
+        var overlay = document.createElement("div");
+        overlay.className = "dp-overlay";
+        var segButtons = "";
+        Object.keys(DEVICES).forEach(function (k) {
+            segButtons += '<button data-d="' + k + '">' + ICONS[k] + "<span>" + DEVICES[k].label + "</span></button>";
         });
+        overlay.innerHTML =
+            '<div class="dp-bar">' +
+                '<div class="dp-seg">' + segButtons + "</div>" +
+                '<div class="dp-size"></div>' +
+                '<button class="dp-close" aria-label="Хаах">' + ICONS.close + "</button>" +
+            "</div>" +
+            '<div class="dp-stage">' +
+                '<div class="dp-holder">' +
+                    '<div class="dp-device">' +
+                        '<div class="dp-screen"></div>' +
+                        '<div class="dp-stand"><i></i><b></b></div>' +
+                    "</div>" +
+                "</div>" +
+            "</div>";
+        document.body.appendChild(overlay);
+
+        var holder    = overlay.querySelector(".dp-holder");
+        var device    = overlay.querySelector(".dp-device");
+        var screenBox = overlay.querySelector(".dp-screen");
+        var sizeLbl   = overlay.querySelector(".dp-size");
+        var buttons   = overlay.querySelectorAll(".dp-seg button");
+        var current   = "mobile";
+        var iframe    = null;
+
+        function layout() {
+            var d = DEVICES[current];
+            var fullW = d.w + d.bezel * 2;
+            var fullH = d.h + d.bezel * 2 + (current === "desktop" ? 70 : 0);
+            var availW = window.innerWidth - 40;
+            var availH = window.innerHeight - 90;
+            var scale = Math.min(1, availW / fullW, availH / fullH);
+
+            device.className = "dp-device " + current;
+            device.style.setProperty("--b", d.bezel + "px");
+            device.style.width = fullW + "px";
+            device.style.height = (d.h + d.bezel * 2) + "px";
+            device.style.padding = d.bezel + "px";
+            device.style.borderRadius = d.radius + "px";
+            device.style.transform = "scale(" + scale + ")";
+            screenBox.style.borderRadius = Math.max(d.radius - d.bezel, 4) + "px";
+
+            holder.style.width = fullW * scale + "px";
+            holder.style.height = fullH * scale + "px";
+            sizeLbl.textContent = d.w + " × " + d.h;
+
+            buttons.forEach(function (b) {
+                b.classList.toggle("active", b.dataset.d === current);
+            });
+        }
+
+        function setDevice(name) {
+            current = name;
+            layout();
+        }
+
+        function openPreview() {
+            if (!iframe) {
+                iframe = document.createElement("iframe");
+                iframe.src = location.pathname + "?preview=1";
+                iframe.title = "Website preview";
+                screenBox.appendChild(iframe);
+            }
+            overlay.classList.add("open");
+            document.body.style.overflow = "hidden";
+            layout();
+        }
+
+        function closePreview() {
+            overlay.classList.remove("open");
+            document.body.style.overflow = "";
+        }
+
+        fab.addEventListener("click", openPreview);
+        overlay.querySelector(".dp-close").addEventListener("click", closePreview);
+        buttons.forEach(function (b) {
+            b.addEventListener("click", function () { setDevice(b.dataset.d); });
+        });
+        overlay.addEventListener("click", function (e) {
+            if (e.target.classList.contains("dp-stage")) closePreview();
+        });
+        window.addEventListener("resize", function () {
+            if (overlay.classList.contains("open")) layout();
+        });
+        window.addEventListener("keydown", function (e) {
+            if (!overlay.classList.contains("open")) return;
+            if (e.key === "Escape") closePreview();
+            if (e.key === "1") setDevice("desktop");
+            if (e.key === "2") setDevice("tablet");
+            if (e.key === "3") setDevice("mobile");
+        });
+    })();
     </script>
 
 </body>
