@@ -71,3 +71,15 @@ flipToggle.addEventListener("click", function () {
         flipStatus.textContent = "Картын урд тал харагдаж байна.";
     }
 });
+
+/* 3. Gallery 3D Flip Cards */
+
+const photoCards = document.querySelectorAll(".photo-flip");
+
+photoCards.forEach(function (card) {
+    card.addEventListener("click", function () {
+        const isFlipped = card.classList.toggle("is-flipped");
+
+        card.setAttribute("aria-pressed", String(isFlipped));
+    });
+});

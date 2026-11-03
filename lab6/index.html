@@ -6,7 +6,7 @@
     <meta name="description" content="Оюутны Өргөө - Хөдөлгөөнт эффект, 3D карт болон олон төрлийн медиа бүхий зургийн цомог">
     <title>Оюутны Өргөө | Зургийн цомог</title>
 
-    <!-- Theme-ийг хуудас зурагдахаас өмнө тохируулж "flash"-аас сэргийлнэ -->
+    <!-- Theme тохиргоо -->
     <script>
         try {
             var t = localStorage.getItem("studentHubTheme") ||
@@ -94,7 +94,8 @@
                         <span class="eyebrow">СОНИРХОЛТОЙ ЗУРГУУД</span>
                         <h2>Зургийн цомог</h2>
                         <p>
-                            Картууд дээр хулганаа аваачих эсвэл гарын товчоор сонгоорой.
+                            Зураг дээр нэг удаа дарахад карт эргэж,
+                            дахин дарахад буцаж эргэнэ.
                         </p>
                     </div>
 
@@ -102,89 +103,169 @@
                 </div>
 
                 <div class="gallery-grid">
+
+                    <!-- Зураг 1 -->
                     <article class="photo-card" style="--i: 0">
-                        <a class="photo-link" href="img/photo1.jpg" target="_blank" rel="noopener"
-                           aria-label="Байгалийн зургийг томоор нээх">
-                            <img src="img/photo1.jpg" width="800" height="600"
-                                 alt="Байгалийн үзэсгэлэнт газар"
-                                 loading="lazy">
-                            <span class="photo-number">01</span>
-                            <span class="photo-caption">
-                                <span>Байгаль</span>
-                                <span class="photo-arrow" aria-hidden="true">↗</span>
+                        <button class="photo-flip" type="button"
+                                aria-pressed="false"
+                                aria-label="Байгаль зургийг эргүүлэх">
+                            <span class="photo-flip-inner">
+                                <span class="photo-face photo-front">
+                                    <img src="img/photo1.jpg"
+                                         width="800" height="600"
+                                         alt="Байгалийн үзэсгэлэнт газар"
+                                         loading="lazy">
+                                    <span class="photo-number">01</span>
+                                    <span class="photo-caption">
+                                        <span>Байгаль</span>
+                                        <span class="photo-arrow">↗</span>
+                                    </span>
+                                </span>
+
+                                <span class="photo-face photo-back">
+                                    <strong>Байгаль</strong>
+                                    <span>Байгалийн үзэсгэлэнт орчин.</span>
+                                    <span class="photo-back-hint">Дахин дарж буцаана уу ↻</span>
+                                </span>
                             </span>
-                        </a>
+                        </button>
                     </article>
 
+                    <!-- Зураг 2 -->
                     <article class="photo-card" style="--i: 1">
-                        <a class="photo-link" href="img/photo2.jpg" target="_blank" rel="noopener"
-                           aria-label="Хотын амьдралын зургийг томоор нээх">
-                            <img src="img/photo2.jpg" width="800" height="600"
-                                 alt="Хотын орчин, барилгууд"
-                                 loading="lazy">
-                            <span class="photo-number">02</span>
-                            <span class="photo-caption">
-                                <span>Хотын амьдрал</span>
-                                <span class="photo-arrow" aria-hidden="true">↗</span>
+                        <button class="photo-flip" type="button"
+                                aria-pressed="false"
+                                aria-label="Хотын амьдралын зургийг эргүүлэх">
+                            <span class="photo-flip-inner">
+                                <span class="photo-face photo-front">
+                                    <img src="img/photo2.jpg"
+                                         width="800" height="600"
+                                         alt="Хотын орчин, барилгууд"
+                                         loading="lazy">
+                                    <span class="photo-number">02</span>
+                                    <span class="photo-caption">
+                                        <span>Хотын амьдрал</span>
+                                        <span class="photo-arrow">↗</span>
+                                    </span>
+                                </span>
+
+                                <span class="photo-face photo-back">
+                                    <strong>Хотын амьдрал</strong>
+                                    <span>Орчин үеийн хотын өнгө төрх.</span>
+                                    <span class="photo-back-hint">Дахин дарж буцаана уу ↻</span>
+                                </span>
                             </span>
-                        </a>
+                        </button>
                     </article>
 
+                    <!-- Зураг 3 -->
                     <article class="photo-card" style="--i: 2">
-                        <a class="photo-link" href="img/photo3.jpg" target="_blank" rel="noopener"
-                           aria-label="Суралцах орчны зургийг томоор нээх">
-                            <img src="img/photo3.jpg" width="800" height="600"
-                                 alt="Ном, компьютер бүхий суралцах орчин"
-                                 loading="lazy">
-                            <span class="photo-number">03</span>
-                            <span class="photo-caption">
-                                <span>Суралцах орчин</span>
-                                <span class="photo-arrow" aria-hidden="true">↗</span>
+                        <button class="photo-flip" type="button"
+                                aria-pressed="false"
+                                aria-label="Суралцах орчны зургийг эргүүлэх">
+                            <span class="photo-flip-inner">
+                                <span class="photo-face photo-front">
+                                    <img src="img/photo3.jpg"
+                                         width="800" height="600"
+                                         alt="Ном, компьютер бүхий суралцах орчин"
+                                         loading="lazy">
+                                    <span class="photo-number">03</span>
+                                    <span class="photo-caption">
+                                        <span>Суралцах орчин</span>
+                                        <span class="photo-arrow">↗</span>
+                                    </span>
+                                </span>
+
+                                <span class="photo-face photo-back">
+                                    <strong>Суралцах орчин</strong>
+                                    <span>Мэдлэг олж авах орчин.</span>
+                                    <span class="photo-back-hint">Дахин дарж буцаана уу ↻</span>
+                                </span>
                             </span>
-                        </a>
+                        </button>
                     </article>
 
+                    <!-- Зураг 4 -->
                     <article class="photo-card" style="--i: 3">
-                        <a class="photo-link" href="img/photo4.jpg" target="_blank" rel="noopener"
-                           aria-label="Аяллын зургийг томоор нээх">
-                            <img src="img/photo4.jpg" width="800" height="600"
-                                 alt="Аяллын үзэсгэлэнт газар"
-                                 loading="lazy">
-                            <span class="photo-number">04</span>
-                            <span class="photo-caption">
-                                <span>Аялал</span>
-                                <span class="photo-arrow" aria-hidden="true">↗</span>
+                        <button class="photo-flip" type="button"
+                                aria-pressed="false"
+                                aria-label="Аяллын зургийг эргүүлэх">
+                            <span class="photo-flip-inner">
+                                <span class="photo-face photo-front">
+                                    <img src="img/photo4.jpg"
+                                         width="800" height="600"
+                                         alt="Аяллын үзэсгэлэнт газар"
+                                         loading="lazy">
+                                    <span class="photo-number">04</span>
+                                    <span class="photo-caption">
+                                        <span>Аялал</span>
+                                        <span class="photo-arrow">↗</span>
+                                    </span>
+                                </span>
+
+                                <span class="photo-face photo-back">
+                                    <strong>Аялал</strong>
+                                    <span>Шинэ газар, шинэ дурсамж.</span>
+                                    <span class="photo-back-hint">Дахин дарж буцаана уу ↻</span>
+                                </span>
                             </span>
-                        </a>
+                        </button>
                     </article>
 
+                    <!-- Зураг 5 -->
                     <article class="photo-card" style="--i: 4">
-                        <a class="photo-link" href="img/photo5.jpg" target="_blank" rel="noopener"
-                           aria-label="Архитектурын зургийг томоор нээх">
-                            <img src="img/photo5.jpg" width="800" height="600"
-                                 alt="Орчин үеийн архитектур"
-                                 loading="lazy">
-                            <span class="photo-number">05</span>
-                            <span class="photo-caption">
-                                <span>Архитектур</span>
-                                <span class="photo-arrow" aria-hidden="true">↗</span>
+                        <button class="photo-flip" type="button"
+                                aria-pressed="false"
+                                aria-label="Архитектурын зургийг эргүүлэх">
+                            <span class="photo-flip-inner">
+                                <span class="photo-face photo-front">
+                                    <img src="img/photo5.jpg"
+                                         width="800" height="600"
+                                         alt="Орчин үеийн архитектур"
+                                         loading="lazy">
+                                    <span class="photo-number">05</span>
+                                    <span class="photo-caption">
+                                        <span>Архитектур</span>
+                                        <span class="photo-arrow">↗</span>
+                                    </span>
+                                </span>
+
+                                <span class="photo-face photo-back">
+                                    <strong>Архитектур</strong>
+                                    <span>Орчин үеийн барилгын загвар.</span>
+                                    <span class="photo-back-hint">Дахин дарж буцаана уу ↻</span>
+                                </span>
                             </span>
-                        </a>
+                        </button>
                     </article>
 
+                    <!-- Зураг 6 -->
                     <article class="photo-card" style="--i: 5">
-                        <a class="photo-link" href="img/photo6.jpg" target="_blank" rel="noopener"
-                           aria-label="Бүтээлч санааны зургийг томоор нээх">
-                            <img src="img/photo6.jpg" width="800" height="600"
-                                 alt="Бүтээлч санаа, дизайн"
-                                 loading="lazy">
-                            <span class="photo-number">06</span>
-                            <span class="photo-caption">
-                                <span>Бүтээлч байдал</span>
-                                <span class="photo-arrow" aria-hidden="true">↗</span>
+                        <button class="photo-flip" type="button"
+                                aria-pressed="false"
+                                aria-label="Бүтээлч байдлын зургийг эргүүлэх">
+                            <span class="photo-flip-inner">
+                                <span class="photo-face photo-front">
+                                    <img src="img/photo6.jpg"
+                                         width="800" height="600"
+                                         alt="Бүтээлч санаа, дизайн"
+                                         loading="lazy">
+                                    <span class="photo-number">06</span>
+                                    <span class="photo-caption">
+                                        <span>Бүтээлч байдал</span>
+                                        <span class="photo-arrow">↗</span>
+                                    </span>
+                                </span>
+
+                                <span class="photo-face photo-back">
+                                    <strong>Бүтээлч байдал</strong>
+                                    <span>Шинэ санааг бодит бүтээл болго.</span>
+                                    <span class="photo-back-hint">Дахин дарж буцаана уу ↻</span>
+                                </span>
                             </span>
-                        </a>
+                        </button>
                     </article>
+
                 </div>
             </div>
         </section>
