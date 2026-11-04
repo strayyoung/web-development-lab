@@ -1,0 +1,86 @@
+// ==========================================
+// Features: features-grid, info-card
+// BEM: info-card__icon, info-card__title, info-card__text, info-card__tag
+// ==========================================
+@use "../base/mixins" as *;
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+
+  @include respond("tablet") {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include respond("mobile") {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info-card {
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-medium);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+
+  &:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+  }
+
+  // Tablet дээр сүүлийн карт бүтэн мөр эзэлнэ
+  @include respond("tablet") {
+    &:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  // Mobile дээр буцаж энгийн болно (tablet-ийн дараа байх ёстой)
+  @include respond("mobile") {
+    padding: 22px;
+
+    &:last-child {
+      grid-column: auto;
+    }
+  }
+
+  &__icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    background: var(--surface-soft);
+    color: var(--primary);
+    font-size: 23px;
+  }
+
+  &__title {
+    font-size: 18px;
+  }
+
+  &__text {
+    margin-top: 9px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  &__tag {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 5px 9px;
+    border-radius: 8px;
+    background: var(--surface-soft);
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 800;
+  }
+}

@@ -1,0 +1,41 @@
+// ==========================================
+// Call to action
+// BEM: cta, cta__content, cta__title, cta__text, cta__eyebrow
+// ==========================================
+@use "../base/mixins" as *;
+@use "../base/functions" as *;
+
+.cta {
+  padding-block: 45px;
+  background: linear-gradient(115deg, #5c3bc4, #8c6af4);
+  color: contrast(#5c3bc4);
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    @include respond("mobile") {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__eyebrow {
+    color: #e1d8ff;
+  }
+
+  &__title {
+    font-size: clamp(25px, 4vw, 34px);
+    line-height: 1.2;
+    letter-spacing: -1px;
+  }
+
+  &__text {
+    margin-top: 8px;
+    color: #eee8ff;
+    font-size: 13px;
+  }
+}

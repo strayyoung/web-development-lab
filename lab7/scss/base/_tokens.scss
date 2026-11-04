@@ -1,0 +1,94 @@
+// ==========================================
+// Design tokens: өнгө, радиус, зай, breakpoint
+// ==========================================
+
+// Өнгө (light theme)
+$colors-light: (
+  "bg": #f5f4fc,
+  "surface": #ffffff,
+  "surface-soft": #eeebff,
+  "text": #20213a,
+  "text-muted": #62637a,
+  "primary": #7655e8,
+  "primary-dark": #5b3bc5,
+  "accent": #b8a5ff,
+  "border": #e6e2f3,
+  "shadow": 0 12px 35px rgba(45, 32, 95, 0.09),
+  "shadow-hover": 0 20px 45px rgba(75, 48, 160, 0.18)
+);
+
+// Өнгө (dark theme)
+$colors-dark: (
+  "bg": #12121c,
+  "surface": #1c1b2a,
+  "surface-soft": #28243e,
+  "text": #f4f1ff,
+  "text-muted": #b2aec9,
+  "primary": #a18aff,
+  "primary-dark": #8465f4,
+  "accent": #c5b7ff,
+  "border": #353148,
+  "shadow": 0 12px 35px rgba(0, 0, 0, 0.2),
+  "shadow-hover": 0 20px 45px rgba(0, 0, 0, 0.35)
+);
+
+// Радиус
+$radii: (
+  "small": 12px,
+  "medium": 20px,
+  "large": 28px
+);
+
+// Зай
+$spacing: (
+  "1": 8px,
+  "2": 16px,
+  "3": 24px,
+  "4": 32px,
+  "5": 48px,
+  "6": 64px
+);
+
+// Breakpoint
+$breakpoints: (
+  "tablet": 900px,
+  "mobile": 600px
+);
+
+// Бусад утга
+$transition: 220ms ease;
+$container: 1160px;
+
+// ==========================================
+// :root дотор custom property үүсгэх
+// ==========================================
+:root {
+  color-scheme: light;
+
+  @each $name, $value in $colors-light {
+    --#{$name}: #{$value};
+  }
+
+  @each $name, $value in $radii {
+    --radius-#{$name}: #{$value};
+  }
+
+  @each $name, $value in $spacing {
+    --space-#{$name}: #{$value};
+  }
+
+  @each $name, $value in $breakpoints {
+    --bp-#{$name}: #{$value};
+  }
+
+  --transition: #{$transition};
+  --container: #{$container};
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  @each $name, $value in $colors-dark {
+    --#{$name}: #{$value};
+  }
+}

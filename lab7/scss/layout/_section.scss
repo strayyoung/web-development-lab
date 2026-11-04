@@ -1,0 +1,70 @@
+// ==========================================
+// Section: eyebrow, section-heading, дэвсгэр өнгө
+// BEM: eyebrow, section-heading__title, section--gallery
+// ==========================================
+@use "../base/mixins" as *;
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 30px;
+
+  @include respond("mobile") {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__title {
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1.2;
+    letter-spacing: -1px;
+
+    @include respond("mobile") {
+      font-size: 30px;
+    }
+  }
+
+  &__text {
+    margin-top: 9px;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  &__count {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+}
+
+// Section бүрийн дэвсгэр өнгө
+.section {
+  &--gallery {
+    background: var(--surface);
+  }
+
+  &--features {
+    background: var(--bg);
+  }
+
+  &--media {
+    background: var(--surface);
+  }
+}

@@ -1,0 +1,69 @@
+// ==========================================
+// Header ба навигаци
+// BEM: site-header, site-header__inner, main-nav, main-nav__link
+// ==========================================
+@use "../base/mixins" as *;
+
+.site-header {
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  transition: background-color var(--transition);
+
+  &__inner {
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+
+    @include respond("tablet") {
+      flex-wrap: wrap;
+      padding-block: 12px;
+    }
+
+    @include respond("mobile") {
+      gap: 12px;
+    }
+  }
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+
+  &__link {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 700;
+    transition: color var(--transition);
+
+    &:hover {
+      color: var(--primary);
+    }
+
+    @include respond("mobile") {
+      font-size: 12px;
+    }
+  }
+
+  @include respond("tablet") {
+    order: 3;
+    width: 100%;
+    gap: 20px;
+    padding-bottom: 5px;
+  }
+
+  @include respond("mobile") {
+    justify-content: flex-start;
+    gap: 17px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+  }
+}

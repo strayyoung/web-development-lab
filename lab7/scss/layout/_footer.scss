@@ -1,0 +1,34 @@
+// ==========================================
+// Footer
+// BEM: site-footer, site-footer__inner, site-footer__text, site-footer__link
+// ==========================================
+@use "../base/mixins" as *;
+
+.site-footer {
+  padding-block: 25px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include respond("mobile") {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  &__text,
+  &__link {
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+
+  &__link:hover {
+    color: var(--primary);
+  }
+}

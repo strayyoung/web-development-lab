@@ -1,0 +1,24 @@
+// ==========================================
+// main.scss: бүх partial-ыг энд нэгтгэнэ
+// ==========================================
+
+// 1. Base
+@use "base/tokens";
+@use "base/functions";
+@use "base/mixins";
+@use "base/reset";
+@use "layout/page";
+@use "components/logo";
+@use "layout/header";
+@use "components/buttons";
+@use "base/animations";
+@use "components/hero";
+@use "layout/section";
+@use "components/gallery";
+@use "components/features";
+@use "components/flip-card";
+@use "components/media";
+@use "components/cta";
+@use "layout/footer";
+@use "utilities/utilities";
+@use "base/motion";

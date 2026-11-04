@@ -1,0 +1,25 @@
+// ==========================================
+// Mixins: respond, flex-center
+// ==========================================
+@use "sass:map";
+@use "tokens" as t;
+
+// Media query. Хэрэглээ: @include respond("mobile") { ... }
+@mixin respond($name) {
+  $width: map.get(t.$breakpoints, $name);
+
+  @if $width == null {
+    @error "Breakpoint '#{$name}' олдсонгүй. 'tablet' эсвэл 'mobile' ашигла.";
+  }
+
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+// Элементийг голлуулах (flex). Хэрэглээ: @include flex-center; эсвэл flex-center(inline-flex)
+@mixin flex-center($display: flex) {
+  display: $display;
+  align-items: center;
+  justify-content: center;
+}

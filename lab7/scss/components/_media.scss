@@ -1,0 +1,99 @@
+// ==========================================
+// Медиа хэсэг: media-grid, media-panel
+// BEM: media-panel__heading, media-panel__icon, media-panel__video
+// ==========================================
+@use "../base/mixins" as *;
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+
+  @include respond("mobile") {
+    grid-template-columns: 1fr;
+  }
+}
+
+.media-panel {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-medium);
+  background: var(--bg);
+
+  @include respond("mobile") {
+    padding: 15px;
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 18px;
+  }
+
+  &__icon {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    place-items: center;
+    border-radius: 13px;
+    background: var(--surface-soft);
+    color: var(--primary);
+    font-size: 19px;
+  }
+
+  &__title {
+    font-size: 16px;
+  }
+
+  &__text {
+    margin-top: 3px;
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+
+  &__video {
+    display: block;
+    width: 100%;
+    max-height: 340px;
+    border-radius: var(--radius-small);
+    background: #111111;
+  }
+
+  &__svg {
+    display: grid;
+    min-height: 220px;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+    background:
+      radial-gradient(circle at 50% 50%, var(--surface-soft), transparent 72%),
+      var(--surface);
+    color: var(--primary);
+
+    svg {
+      width: min(100%, 340px);
+      height: auto;
+    }
+  }
+
+  &__iframe-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-small);
+    background: #111111;
+
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+}

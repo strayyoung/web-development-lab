@@ -1,0 +1,19 @@
+// ==========================================
+// Functions: rem(), contrast()
+// ==========================================
+@use "sass:math";
+@use "sass:color";
+
+// px утгыг rem болгоно. Жишээ: rem(32px) → 2rem
+@function rem($px, $base: 16px) {
+  @return math.div($px, $base) * 1rem;
+}
+
+// Дэвсгэр өнгөнөөс хамаарч цагаан эсвэл хар текстийг сонгоно
+@function contrast($background, $light: #ffffff, $dark: #20213a) {
+  @if color.channel($background, "lightness", $space: hsl) > 60% {
+    @return $dark;
+  }
+
+  @return $light;
+}

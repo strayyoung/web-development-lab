@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Оюутны Өргөө - Хөдөлгөөнт эффект, 3D карт болон олон төрлийн медиа бүхий зургийн цомог">
+    <title>Оюутны Өргөө | Зургийн цомог</title>
+
+    <!-- Theme тохиргоо -->
+    <script>
+        try {
+            var t = localStorage.getItem("studentHubTheme") ||
+                (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+            document.documentElement.dataset.theme = t;
+        } catch (e) {}
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Үндсэн хэсэг рүү очих</a>
+
+    <!-- Толгой хэсэг -->
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a class="logo" href="#home" aria-label="Оюутны Өргөө нүүр">
+                <span class="logo__icon">О</span>
+                <span>Оюутны <span class="logo__accent">Өргөө</span></span>
+            </a>
+
+            <nav class="main-nav" aria-label="Үндсэн цэс">
+                <a class="main-nav__link" href="#home">Нүүр</a>
+                <a class="main-nav__link" href="#gallery">Зургийн цомог</a>
+                <a class="main-nav__link" href="#features">Онцлог</a>
+                <a class="main-nav__link" href="#media">Медиа</a>
+            </nav>
+
+            <button class="theme-button" id="themeToggle"
+                    type="button" aria-pressed="false">
+                <span id="themeIcon" aria-hidden="true">☾</span>
+                <span id="themeText">Dark mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- Нүүр хэсэг -->
+        <section class="hero" id="home">
+            <div class="container hero__grid">
+                <div class="hero__content">
+                    <span class="eyebrow">ВЕБ ХӨГЖҮҮЛЭЛТ · ЛАБОРАТОРИ 6</span>
+
+                    <h1 class="hero__title">
+                        Суралцах орчноо
+                        <span class="hero__title-accent">шинэ өнцгөөс</span>
+                        хараарай.
+                    </h1>
+
+                    <p class="hero__text">
+                        Хөдөлгөөнт эффект, 3D карт болон олон төрлийн медиа
+                        ашигласан оюутны зургийн цомогт тавтай морил.
+                    </p>
+
+                    <a class="button button--primary hero__button" href="#gallery">
+                        Зургийн цомог үзэх
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+                <div class="hero__art" aria-hidden="true">
+                    <div class="hero__orbit hero__orbit--one"></div>
+                    <div class="hero__orbit hero__orbit--two"></div>
+
+                    <div class="art-card">
+                        <span class="art-card__symbol">✦</span>
+                        <span class="art-card__label">СУР · БҮТЭЭ · ХӨГЖ</span>
+                        <span class="art-card__big">Шинэ<br>санаа.</span>
+                        <span class="art-card__small">Оюутны Өргөө / 2026</span>
+                    </div>
+
+                    <span class="hero__dot hero__dot--one"></span>
+                    <span class="hero__dot hero__dot--two"></span>
+                </div>
+            </div>
+        <!-- Зургийн цомог -->
+        <section class="section section--gallery" id="gallery">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">СОНИРХОЛТОЙ ЗУРГУУД</span>
+                        <h2 class="section-heading__title">Зургийн цомог</h2>
+                        <p class="section-heading__text">
+                            Зураг дээр нэг удаа дарахад карт эргэж,
+                            дахин дарахад буцаж эргэнэ.
+                        </p>
+                    </div>
+
+                    <span class="section-heading__count">6 ЗУРАГ</span>
+                </div>
+
+                <div class="gallery-grid">
+
+                    <!-- Зураг 1 -->
+                    <article class="photo-card" style="--i: 0">
+                        <button class="photo-card__flip" type="button"
+                                aria-pressed="false"
+                                aria-label="Байгаль зургийг эргүүлэх">
+                            <span class="photo-card__inner">
+                                <span class="photo-card__face photo-card__face--front">
+                                    <img class="photo-card__image" src="img/photo1.jpg"
+                                         width="800" height="600"
+                                         alt="Байгалийн үзэсгэлэнт газар"
+                                         loading="lazy">
+                                    <span class="photo-card__number">01</span>
+                                    <span class="photo-card__caption">
+                                        <span>Байгаль</span>
+                                        <span class="photo-card__arrow">↗</span>
+                                    </span>
+                                </span>
+
+                                <span class="photo-card__face photo-card__face--back">
+                                    <strong class="photo-card__back-title">Байгаль</strong>
+                                    <span class="photo-card__back-text">Байгалийн үзэсгэлэнт орчин.</span>
+                                    <span class="photo-card__back-hint">Дахин дарж буцаана уу ↻</span>
+                                </span>
+                            </span>
+                        </button>
+                    </article>
+
+                    <!-- Зураг 2 -->
+                    <article class="photo-card" style="--i: 1">
+                        <button class="photo-card__flip" type="button"
+                                aria-pressed="false"
+                                aria-label="Хотын амьдралын зургийг эргүүлэх">
+                            <span class="photo-card__inner">
+                                <span class="photo-card__face photo-card__face--front">
+                                    <img class="photo-card__image" src="img/photo2.jpg"
+                                         width="800" height="600"
+                                         alt="Хотын орчин, барилгууд"
+                                         loading="lazy">
+                                    <span class="photo-card__number">02</span>
+                                    <span class="photo-card__caption">
+                                        <span>Хотын амьдрал</span>
+                                        <span class="photo-card__arrow">↗</span>
+                                    </span>
+                                </span>
+
+                                <span class="photo-card__face photo-card__face--back">
+                                    <strong class="photo-card__back-title">Хотын амьдрал</strong>
+                                    <span class="photo-card__back-text">Орчин үеийн хотын өнгө төрх.</span>
+                                    <span class="photo-card__back-hint">Дахин дарж буцаана уу ↻</span>
+                                </span>
+                            </span>
+                        </button>
+                    </article>
+
+                    <!-- Зураг 3 -->
+                    <article class="photo-card" style="--i: 2">
+                        <button class="photo-card__flip" type="button"
+                                aria-pressed="false"
+                                aria-label="Суралцах орчны зургийг эргүүлэх">
+                            <span class="photo-card__inner">
+                                <span class="photo-card__face photo-card__face--front">
+                                    <img class="photo-card__image" src="img/photo3.jpg"
+                                         width="800" height="600"
+                                         alt="Ном, компьютер бүхий суралцах орчин"
+                                         loading="lazy">
+                                    <span class="photo-card__number">03</span>
+                                    <span class="photo-card__caption">
+                                        <span>Суралцах орчин</span>
+                                        <span class="photo-card__arrow">↗</span>
+                                    </span>
+                                </span>
+
+                                <span class="photo-card__face photo-card__face--back">
+                                    <strong class="photo-card__back-title">Суралцах орчин</strong>
+                                    <span class="photo-card__back-text">Мэдлэг олж авах орчин.</span>
+                                    <span class="photo-card__back-hint">Дахин дарж буцаана уу ↻</span>
+                                </span>
+                            </span>
+                        </button>
+                    </article>
+
+                    <!-- Зураг 4 -->
+                    <article class="photo-card" style="--i: 3">
+                        <button class="photo-card__flip" type="button"
+                                aria-pressed="false"
+                                aria-label="Аяллын зургийг эргүүлэх">
+                            <span class="photo-card__inner">
+                                <span class="photo-card__face photo-card__face--front">
+                                    <img class="photo-card__image" src="img/photo4.jpg"
+                                         width="800" height="600"
+                                         alt="Аяллын үзэсгэлэнт газар"
+                                         loading="lazy">
+                                    <span class="photo-card__number">04</span>
+                                    <span class="photo-card__caption">
+                                        <span>Аялал</span>
+                                        <span class="photo-card__arrow">↗</span>
+                                    </span>
+                                </span>
+
+                                <span class="photo-card__face photo-card__face--back">
+                                    <strong class="photo-card__back-title">Аялал</strong>
+                                    <span class="photo-card__back-text">Шинэ газар, шинэ дурсамж.</span>
+                                    <span class="photo-card__back-hint">Дахин дарж буцаана уу ↻</span>
+                                </span>
+                            </span>
+                        </button>
+                    </article>
+
+                    <!-- Зураг 5 -->
+                    <article class="photo-card" style="--i: 4">
+                        <button class="photo-card__flip" type="button"
+                                aria-pressed="false"
+                                aria-label="Архитектурын зургийг эргүүлэх">
+                            <span class="photo-card__inner">
+                                <span class="photo-card__face photo-card__face--front">
+                                    <img class="photo-card__image" src="img/photo5.jpg"
+                                         width="800" height="600"
+                                         alt="Орчин үеийн архитектур"
+                                         loading="lazy">
+                                    <span class="photo-card__number">05</span>
+                                    <span class="photo-card__caption">
+                                        <span>Архитектур</span>
+                                        <span class="photo-card__arrow">↗</span>
+                                    </span>
+                                </span>
+
+                                <span class="photo-card__face photo-card__face--back">
+                                    <strong class="photo-card__back-title">Архитектур</strong>
+                                    <span class="photo-card__back-text">Орчин үеийн барилгын загвар.</span>
+                                    <span class="photo-card__back-hint">Дахин дарж буцаана уу ↻</span>
+                                </span>
+                            </span>
+                        </button>
+                    </article>
+
+                    <!-- Зураг 6 -->
+                    <article class="photo-card" style="--i: 5">
+                        <button class="photo-card__flip" type="button"
+                                aria-pressed="false"
+                                aria-label="Бүтээлч байдлын зургийг эргүүлэх">
+                            <span class="photo-card__inner">
+                                <span class="photo-card__face photo-card__face--front">
+                                    <img class="photo-card__image" src="img/photo6.jpg"
+                                         width="800" height="600"
+                                         alt="Бүтээлч санаа, дизайн"
+                                         loading="lazy">
+                                    <span class="photo-card__number">06</span>
+                                    <span class="photo-card__caption">
+                                        <span>Бүтээлч байдал</span>
+                                        <span class="photo-card__arrow">↗</span>
+                                    </span>
+                                </span>
+
+                                <span class="photo-card__face photo-card__face--back">
+                                    <strong class="photo-card__back-title">Бүтээлч байдал</strong>
+                                    <span class="photo-card__back-text">Шинэ санааг бодит бүтээл болго.</span>
+                                    <span class="photo-card__back-hint">Дахин дарж буцаана уу ↻</span>
+                                </span>
+                            </span>
+                        </button>
+                    </article>
+
+                </div>
+            </div>
+        <!-- CSS-ийн онцлогууд -->
+        <section class="section section--features" id="features">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">ХАРИЛЦАН ҮЙЛДЭЛ ЗАГВАР</span>
+                        <h2 class="section-heading__title">Вебийн онцлогууд</h2>
+                        <p class="section-heading__text">
+                            3D хувиргалт ашигласан картыг товч дарж эргүүлээрэй.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="features-grid">
+                    <article class="info-card">
+                        <span class="info-card__icon" aria-hidden="true">✦</span>
+                        <h3 class="info-card__title">Хөдөлгөөнт эффект</h3>
+                        <p class="info-card__text">
+                            Зургийн картууд дараалсан хугацаатайгаар
+                            хөдөлгөөнтэй гарч ирнэ.
+                        </p>
+                        <span class="info-card__tag">Хөдөлгөөний дүрэм</span>
+                    </article>
+
+                    <article class="info-card">
+                        <span class="info-card__icon" aria-hidden="true">↗</span>
+                        <h3 class="info-card__title">Хувиргалт</h3>
+                        <p class="info-card__text">
+                            Хулганаар сонгох үед картын хэмжээ, байрлал
+                            зөөлөн өөрчлөгдөнө.
+                        </p>
+                        <span class="info-card__tag">Шилжилтийн эффект</span>
+                    </article>
+
+                    <article class="info-card">
+                        <span class="info-card__icon" aria-hidden="true">◈</span>
+                        <h3 class="info-card__title">CSS хувьсагч</h3>
+                        <p class="info-card__text">
+                            Өнгө, зай болон загварын утгуудыг
+                            нэг дороос удирдана.
+                        </p>
+                        <span class="info-card__tag">Загварын тохиргоо</span>
+                    </article>
+                </div>
+
+                <!-- 3D карт -->
+                <div class="flip-demo">
+                    <div class="flip-demo__scene">
+                        <div class="flip-card" id="flipCard">
+                            <div class="flip-card__face flip-card__face--front">
+                                <span class="flip-card__kicker">ОЮУТНЫ ӨРГӨӨ</span>
+                                <span class="flip-card__graphic" aria-hidden="true">✧</span>
+                                <h3 class="flip-card__title">Шинэ зүйл сур</h3>
+                                <p class="flip-card__text">
+                                    Картын ар талыг харахын тулд товч дарна уу.
+                                </p>
+                            </div>
+
+                            <div class="flip-card__face flip-card__face--back" aria-hidden="true">
+                                <span class="flip-card__kicker">ХӨГЖСӨӨР БАЙ</span>
+                                <span class="flip-card__graphic" aria-hidden="true">✦</span>
+                                <h3 class="flip-card__title">Өдөр бүр хөгж</h3>
+                                <p class="flip-card__text">
+                                    Суралцах, турших, бүтээх нь амжилтын эхлэл.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="button button--primary flip-demo__button"
+                            id="flipToggle"
+                            type="button"
+                            aria-pressed="false">
+                        Картыг эргүүлэх
+                    </button>
+
+                    <p class="flip-demo__hint" id="flipStatus" aria-live="polite">
+                        Картын урд тал харагдаж байна.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Медиа хэсэг -->
+        <section class="section section--media" id="media">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">ВИДЕО · ХАДМАЛ · ДҮРСЛЭЛ</span>
+                        <h2 class="section-heading__title">Олон төрлийн медиа</h2>
+                        <p class="section-heading__text">
+                            Видео тоглуулагч, хадмал, гадаад видео болон
+                            SVG дүрслэлийн жишээ.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="media-grid">
+
+                    <!-- HTML5 видео -->
+                    <article class="media-panel">
+                        <div class="media-panel__heading">
+                            <span class="media-panel__icon" aria-hidden="true">▶</span>
+                            <div>
+                                <h3 class="media-panel__title">Видео тоглуулагч</h3>
+                                <p class="media-panel__text">Өөрийн видео файлыг тоглуулаарай.</p>
+                            </div>
+                        </div>
+
+                        <video class="media-panel__video"
+                               controls
+                               preload="metadata"
+                               poster="img/photo3.jpg">
+
+                            <source src="video/clip.mp4" type="video/mp4">
+                            <source src="video/clip.webm" type="video/webm">
+
+                            <track src="video/clip.mn.vtt"
+                                   kind="captions"
+                                   srclang="mn"
+                                   label="Монгол хадмал"
+                                   default>
+
+                            Таны хөтөч видео тоглуулах боломжгүй байна.
+                        </video>
+                    </article>
+
+                    <!-- Inline SVG -->
+                    <article class="media-panel">
+                        <div class="media-panel__heading">
+                            <span class="media-panel__icon" aria-hidden="true">◎</span>
+                            <div>
+                                <h3 class="media-panel__title">SVG дүрслэл</h3>
+                                <p class="media-panel__text">HTML дотор шууд зурсан дүрс.</p>
+                            </div>
+                        </div>
+
+                        <div class="media-panel__svg">
+                            <svg viewBox="0 0 320 180"
+                                 role="img"
+                                 aria-labelledby="svgTitle svgDesc">
+
+                                <title id="svgTitle">Оюутны Өргөөний дүрс</title>
+
+                                <desc id="svgDesc">
+                                    Нил ягаан дугуй, од болон чимэглэлийн
+                                    дүрсээс бүрдсэн зураг.
+                                </desc>
+
+                                <defs>
+                                    <linearGradient id="svgGradient"
+                                                    x1="0" y1="0"
+                                                    x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#a78bfa"/>
+                                        <stop offset="100%" stop-color="#6d4aff"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <circle cx="160" cy="90" r="66"
+                                        fill="url(#svgGradient)"/>
+
+                                <circle cx="160" cy="90" r="47"
+                                        fill="none"
+                                        stroke="white"
+                                        stroke-opacity=".55"
+                                        stroke-width="2"/>
+
+                                <path d="M160 48 L171 76 L201 77 L178 96
+                                         L186 125 L160 108 L134 125
+                                         L142 96 L119 77 L149 76 Z"
+                                      fill="white"/>
+
+                                <circle cx="245" cy="40" r="9" fill="#f6c66a"/>
+                                <circle cx="75" cy="130" r="6" fill="#f6c66a"/>
+
+                                <path d="M42 43 L63 43 M52.5 32.5 L52.5 53.5"
+                                      stroke="currentColor"
+                                      stroke-width="3"
+                                      stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </article>
+
+                    <!-- Iframe видео -->
+                    <article class="media-panel iframe-panel">
+                        <div class="media-panel__heading">
+                            <span class="media-panel__icon" aria-hidden="true">▣</span>
+                            <div>
+                                <h3 class="media-panel__title">Гадаад видео</h3>
+                                <p class="media-panel__text">Интернэтээс оруулсан видео.</p>
+                            </div>
+                        </div>
+
+                        <div class="media-panel__iframe-wrapper">
+                            <iframe
+                                src="https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ"
+                                title="Жишээ видео"
+                                loading="lazy"
+                                sandbox="allow-scripts allow-same-origin allow-presentation"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allow="encrypted-media; picture-in-picture; web-share"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Төгсгөлийн уриалга -->
+        <section class="cta">
+            <div class="container cta__content">
+                <div>
+                    <span class="eyebrow cta__eyebrow">ШИНЭ ЗҮЙЛ СУДАЛЪЯ</span>
+                    <h2 class="cta__title">Санаагаа бодит бүтээл болго.</h2>
+                    <p class="cta__text">
+                        CSS3 ашиглан өөрийн веб хуудсаа үргэлжлүүлэн хөгжүүлээрэй.
+                    </p>
+                </div>
+
+                <a class="button button--secondary" href="#home">
+                    Дээш буцах ↑
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Хөл хэсэг -->
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
+            <a class="logo logo--footer" href="#home">
+                <span class="logo__icon">О</span>
+                <span>Оюутны <span class="logo__accent">Өргөө</span></span>
+            </a>
+
+            <p class="site-footer__text">© 2026 Оюутны Өргөө · Лаборатори 6</p>
+
+            <a class="site-footer__link" href="#main">Үндсэн хэсэг ↑</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,180 @@
+// ==========================================
+// Hero хэсэг
+// BEM: hero, hero__grid, hero__title, hero__orbit, hero__dot, art-card
+// ==========================================
+@use "../base/mixins" as *;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: 76px 88px;
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(167, 139, 250, 0.19), transparent 38%),
+    var(--bg);
+
+  @include respond("mobile") {
+    padding-block: 48px 35px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 50px;
+
+    @include respond("tablet") {
+      grid-template-columns: 1fr 0.8fr;
+      gap: 25px;
+    }
+
+    @include respond("mobile") {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  &__title {
+    max-width: 620px;
+    font-size: clamp(36px, 5vw, 59px);
+    line-height: 1.12;
+    letter-spacing: -2px;
+
+    @include respond("mobile") {
+      font-size: clamp(34px, 10vw, 46px);
+      letter-spacing: -1.5px;
+    }
+  }
+
+  &__title-accent {
+    color: var(--primary);
+  }
+
+  &__text {
+    max-width: 540px;
+    margin-top: 22px;
+    color: var(--text-muted);
+    font-size: 16px;
+
+    @include respond("mobile") {
+      font-size: 14px;
+    }
+  }
+
+  &__button {
+    margin-top: 28px;
+  }
+
+  &__art {
+    position: relative;
+    display: grid;
+    min-height: 340px;
+    place-items: center;
+    isolation: isolate;
+
+    @include respond("tablet") {
+      min-height: 300px;
+    }
+
+    @include respond("mobile") {
+      min-height: 290px;
+    }
+  }
+
+  &__orbit {
+    position: absolute;
+    z-index: -1;
+    width: 280px;
+    height: 280px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    opacity: 0.65;
+
+    @include respond("mobile") {
+      width: 235px;
+      height: 235px;
+    }
+
+    &--one {
+      animation: orbit-rotate 18s linear infinite;
+    }
+
+    &--two {
+      width: 330px;
+      height: 220px;
+      transform: rotate(-32deg);
+
+      @include respond("mobile") {
+        width: 270px;
+        height: 190px;
+      }
+    }
+  }
+
+  &__dot {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #f4c66c;
+    animation: float-dot 4s ease-in-out infinite;
+
+    &--one {
+      top: 16%;
+      right: 12%;
+    }
+
+    &--two {
+      bottom: 15%;
+      left: 12%;
+      width: 10px;
+      height: 10px;
+      background: var(--primary);
+      animation-delay: 1s;
+    }
+  }
+}
+
+// Hero доторх градиент карт
+.art-card {
+  display: flex;
+  width: min(280px, 80%);
+  min-height: 280px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 27px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 28px;
+  background: linear-gradient(145deg, #8f70f7, #5e40c9);
+  color: #ffffff;
+  box-shadow: 0 28px 60px rgba(83, 53, 184, 0.27);
+  transform: rotate(5deg);
+  animation: float-card 5s ease-in-out infinite;
+
+  @include respond("mobile") {
+    width: 240px;
+    min-height: 245px;
+  }
+
+  &__symbol {
+    align-self: flex-end;
+    font-size: 34px;
+  }
+
+  &__label {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+  }
+
+  &__big {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -1.4px;
+  }
+
+  &__small {
+    font-size: 11px;
+    opacity: 0.8;
+  }
+}

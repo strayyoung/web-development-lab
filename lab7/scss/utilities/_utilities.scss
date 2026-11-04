@@ -1,0 +1,35 @@
+// ==========================================
+// Utility class-ууд (@each ашиглан үүсгэнэ)
+// Жишээ: .u-text-primary, .u-bg-surface, .u-radius-small, .u-mt-2
+// ==========================================
+@use "../base/tokens" as t;
+
+// Өнгөний нэрс (shadow-г оруулахгүй)
+$utility-colors: "bg", "surface", "surface-soft", "text", "text-muted", "primary",
+  "primary-dark", "accent", "border";
+
+@each $name in $utility-colors {
+  .u-text-#{$name} {
+    color: var(--#{$name});
+  }
+
+  .u-bg-#{$name} {
+    background: var(--#{$name});
+  }
+}
+
+@each $name, $value in t.$radii {
+  .u-radius-#{$name} {
+    border-radius: var(--radius-#{$name});
+  }
+}
+
+@each $name, $value in t.$spacing {
+  .u-mt-#{$name} {
+    margin-top: var(--space-#{$name});
+  }
+
+  .u-mb-#{$name} {
+    margin-bottom: var(--space-#{$name});
+  }
+}

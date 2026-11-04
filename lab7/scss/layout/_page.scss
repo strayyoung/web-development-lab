@@ -1,0 +1,37 @@
+// ==========================================
+// Layout: container, section, skip-link
+// ==========================================
+@use "../base/mixins" as *;
+
+.container {
+  width: min(var(--container), calc(100% - 40px));
+  margin-inline: auto;
+
+  @include respond("mobile") {
+    width: min(100% - 28px, var(--container));
+  }
+}
+
+.section {
+  padding-block: var(--space-6);
+
+  @include respond("mobile") {
+    padding-block: 46px;
+  }
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 1000;
+  top: 10px;
+  left: 10px;
+  padding: 10px 16px;
+  border-radius: var(--radius-small);
+  background: var(--primary-dark);
+  color: #ffffff;
+  transform: translateY(-160%);
+
+  &:focus {
+    transform: translateY(0);
+  }
+}
