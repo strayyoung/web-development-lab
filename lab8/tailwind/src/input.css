@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* Даалгавар 3: dark mode-ийг <html class="dark">-аар удирдана */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Bootstrap style.css-ийн :root болон [data-bs-theme="dark"]-тай ижил утгууд */
+:root {
+  --bg: #f5f4fc;
+  --surface: #ffffff;
+  --surface-soft: #eeebff;
+  --text: #20213a;
+  --text-muted: #62637a;
+  --primary: #7655e8;
+  --primary-dark: #5b3bc5;
+  --accent: #b8a5ff;
+  --border: #e6e2f3;
+  --shadow: 0 12px 35px rgba(45, 32, 95, 0.09);
+  --shadow-hover: 0 20px 45px rgba(75, 48, 160, 0.18);
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #12121c;
+  --surface: #1c1b2a;
+  --surface-soft: #28243e;
+  --text: #f4f1ff;
+  --text-muted: #b2aec9;
+  --primary: #a18aff;
+  --primary-dark: #8465f4;
+  --accent: #c5b7ff;
+  --border: #353148;
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  --shadow-hover: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* Даалгавар 4: --color-brand. CSS хувьсагчтай холбосон тул dark mode дээр өөрөө солигдоно */
+@theme inline {
+  --color-brand: var(--primary);
+  --color-brand-dark: var(--primary-dark);
+  --color-page: var(--bg);
+  --color-surface: var(--surface);
+  --color-soft: var(--surface-soft);
+  --color-ink: var(--text);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-line: var(--border);
+  --shadow-card: var(--shadow);
+  --shadow-lift: var(--shadow-hover);
+}
+
+@theme {
+  --font-sans: Arial, Helvetica, sans-serif;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 900px;
+  --radius-card: 20px;
+  --ease-flip: cubic-bezier(0.2, 0.75, 0.25, 1);
+
+  --animate-enter: card-entrance 650ms ease calc(var(--i, 0) * 100ms) backwards;
+  --animate-float-card: float-card 5s ease-in-out infinite;
+  --animate-float-dot: float-dot 4s ease-in-out infinite;
+  --animate-orbit: orbit-rotate 18s linear infinite;
+
+  @keyframes card-entrance {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float-card {
+    0%, 100% { transform: translateY(0) rotate(5deg); }
+    50%      { transform: translateY(-10px) rotate(2deg); }
+  }
+  @keyframes orbit-rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes float-dot {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-12px); }
+  }
+}
+
+/* .container-ийн оронд: өргөн 1160px, мобайл дээр 28px зай */
+@utility wrap {
+  width: min(1160px, calc(100% - 40px));
+  margin-inline: auto;
+  @media (width < 600px) {
+    width: min(1160px, calc(100% - 28px));
+  }
+}
+
+@layer base {
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 4px;
+  }
+  ::selection {
+    color: #fff;
+    background: var(--primary-dark);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

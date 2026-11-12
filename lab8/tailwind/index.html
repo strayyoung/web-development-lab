@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="mn" class="scroll-smooth scroll-pt-[90px]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Оюутны Өргөө - Tailwind CSS ашигласан хөдөлгөөнт эффект, 3D карт болон медиа бүхий зургийн цомог">
+  <title>Оюутны Өргөө | Tailwind</title>
+
+  <script>
+    try {
+      if ((localStorage.getItem("studentHubTheme") || "light") === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    } catch (error) {}
+  </script>
+
+  <link href="css/output.css" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="min-w-[320px] overflow-x-hidden bg-page font-sans leading-[1.65] text-ink transition-colors duration-200">
+  <a class="fixed left-2.5 top-2.5 z-[1000] -translate-y-[160%] rounded-xl bg-brand-dark px-4 py-2.5 text-white focus:translate-y-0" href="#main">Үндсэн хэсэг рүү очих</a>
+
+  <!-- HEADER -->
+  <header class="border-b border-line bg-surface">
+    <div class="wrap flex min-h-[76px] items-center justify-between gap-6 max-md:flex-wrap max-md:py-3 max-sm:gap-3">
+
+      <a class="inline-flex shrink-0 items-center gap-2.5 text-[21px] font-extrabold tracking-[-0.7px] max-sm:text-lg" href="#home" aria-label="Оюутны Өргөө нүүр">
+        <span class="grid size-[38px] place-items-center rounded-xl bg-brand text-white shadow-[0_5px_14px_rgba(118,85,232,.25)] max-sm:size-[34px]">О</span>
+        <span>Оюутны <span class="text-brand">Өргөө</span></span>
+      </a>
+
+      <nav class="flex flex-wrap items-center justify-center gap-[26px] max-md:order-3 max-md:w-full max-md:gap-5 max-md:pb-[5px] max-sm:justify-start max-sm:gap-[17px] max-sm:overflow-x-auto max-sm:whitespace-nowrap" aria-label="Үндсэн цэс">
+        <a class="text-sm font-bold text-muted transition-colors duration-200 hover:text-brand max-sm:text-xs" href="#home">Нүүр</a>
+        <a class="text-sm font-bold text-muted transition-colors duration-200 hover:text-brand max-sm:text-xs" href="#gallery">Зургийн цомог</a>
+        <a class="text-sm font-bold text-muted transition-colors duration-200 hover:text-brand max-sm:text-xs" href="#features">Онцлог</a>
+        <a class="text-sm font-bold text-muted transition-colors duration-200 hover:text-brand max-sm:text-xs" href="#media">Медиа</a>
+      </nav>
+
+      <button id="themeToggle" type="button" aria-pressed="false"
+        class="inline-flex min-h-[42px] shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full border border-brand bg-brand px-3.5 py-[9px] font-bold text-white transition duration-200 hover:-translate-y-0.5 hover:border-brand-dark hover:bg-brand-dark max-sm:min-h-[38px] max-sm:px-2.5 max-sm:py-[7px] max-sm:text-xs">
+        <span id="themeIcon" aria-hidden="true">☾</span>
+        <span id="themeText">Dark mode</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section id="home" class="relative overflow-hidden bg-page bg-[radial-gradient(ellipse_at_85%_15%,rgba(167,139,250,.19),transparent_38%)] pb-[88px] pt-[76px] max-sm:pb-[35px] max-sm:pt-12">
+      <div class="wrap grid grid-cols-[1.05fr_.95fr] items-center gap-[50px] max-md:grid-cols-[1fr_.8fr] max-md:gap-[25px] max-sm:grid-cols-1 max-sm:gap-5">
+
+        <div>
+          <span class="mb-3.5 inline-block text-[11px] font-extrabold tracking-[2px] text-brand">ВЕБ ХӨГЖҮҮЛЭЛТ · ЛАБОРАТОРИ 8</span>
+
+          <h1 class="max-w-[620px] text-[clamp(36px,5vw,59px)] font-extrabold leading-[1.12] tracking-[-2px] max-sm:text-[clamp(34px,10vw,46px)] max-sm:tracking-[-1.5px]">
+            Суралцах орчноо
+            <span class="text-brand">шинэ өнцгөөс</span>
+            хараарай.
+          </h1>
+
+          <p class="mt-[22px] max-w-[540px] text-base text-muted max-sm:text-sm">
+            Хөдөлгөөнт эффект, 3D карт болон олон төрлийн медиа
+            ашигласан оюутны зургийн цомогт тавтай морил.
+          </p>
+
+          <a href="#gallery"
+            class="mt-7 inline-flex min-h-12 cursor-pointer items-center justify-center gap-3 rounded-[14px] border border-brand bg-brand px-[22px] py-3 text-sm font-bold text-white transition duration-200 hover:-translate-y-[3px] hover:border-brand-dark hover:bg-brand-dark hover:shadow-lift">
+            Зургийн цомог үзэх
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="relative isolate grid min-h-[340px] place-items-center max-md:min-h-[300px] max-sm:min-h-[290px]" aria-hidden="true">
+          <div class="absolute -z-10 size-[280px] animate-orbit rounded-full border border-accent opacity-65 max-sm:size-[235px]"></div>
+          <div class="absolute -z-10 h-[220px] w-[330px] -rotate-[32deg] rounded-full border border-accent opacity-65 max-sm:h-[190px] max-sm:w-[270px]"></div>
+
+          <div class="flex min-h-[280px] w-[min(280px,80%)] animate-float-card flex-col justify-between rounded-[28px] border border-white/35 bg-linear-[145deg,#8f70f7,#5e40c9] p-[27px] text-white shadow-[0_28px_60px_rgba(83,53,184,.27)] max-sm:min-h-[245px] max-sm:w-[240px]">
+            <span class="self-end text-[34px]">✦</span>
+            <span class="text-[9px] font-extrabold tracking-[1.6px]">СУР · БҮТЭЭ · ХӨГЖ</span>
+            <span class="text-4xl font-extrabold leading-[1.05] tracking-[-1.4px]">Шинэ<br>санаа.</span>
+            <span class="text-[11px] opacity-80">Оюутны Өргөө / 2026</span>
+          </div>
+
+          <span class="absolute right-[12%] top-[16%] size-[15px] animate-float-dot rounded-full bg-[#f4c66c]"></span>
+          <span class="absolute bottom-[15%] left-[12%] size-2.5 animate-float-dot rounded-full bg-brand [animation-delay:1s]"></span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="bg-surface py-16 max-sm:py-[46px]">
+      <div class="wrap">
+
+        <div class="mb-[30px] flex items-end justify-between gap-6 max-sm:flex-col max-sm:items-start max-sm:gap-3">
+          <div>
+            <span class="mb-3.5 inline-block text-[11px] font-extrabold tracking-[2px] text-brand">СОНИРХОЛТОЙ ЗУРГУУД</span>
+            <h2 class="text-[clamp(28px,4vw,38px)] font-extrabold leading-[1.2] tracking-[-1px] max-sm:text-[30px]">Зургийн цомог</h2>
+            <p class="mt-[9px] text-sm text-muted">Зураг дээр нэг удаа дарахад карт эргэж, дахин дарахад буцаж эргэнэ.</p>
+          </div>
+          <span class="shrink-0 rounded-full border border-line px-3 py-2 text-[11px] font-extrabold tracking-[1px] text-muted">6 ЗУРАГ</span>
+        </div>
+
+        <div class="grid grid-cols-3 gap-[22px] max-md:grid-cols-2 max-sm:grid-cols-1 max-sm:gap-4">
+
+          <!-- Зураг 1 -->
+          <article class="min-w-0 animate-enter overflow-hidden rounded-card border border-line bg-surface shadow-card transition duration-200 perspective-[1000px] hover:z-[1] hover:-translate-y-[7px] hover:border-brand hover:shadow-lift focus-within:z-[1] focus-within:-translate-y-[7px] focus-within:border-brand focus-within:shadow-lift" style="--i: 0">
+            <button data-flip type="button" aria-pressed="false" aria-label="Байгаль зургийг эргүүлэх"
+              class="group/flip block aspect-[4/3] w-full cursor-pointer text-left perspective-[1000px] max-sm:aspect-[5/3]">
+              <span class="relative block size-full transition-transform duration-700 ease-flip transform-3d group-aria-pressed/flip:rotate-y-180">
+                <span class="absolute inset-0 flex flex-col justify-end overflow-hidden rounded-card bg-soft backface-hidden">
+                  <img src="img/photo1.jpg" width="800" height="600" alt="Байгалийн үзэсгэлэнт газар" loading="lazy"
+                    class="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover/flip:scale-[1.07]">
+                  <span class="absolute left-3.5 top-3.5 z-[2] grid size-9 place-items-center rounded-[11px] bg-[rgba(25,20,50,.65)] text-xs font-extrabold text-white">01</span>
+                  <span class="absolute inset-x-0 bottom-0 z-[2] bg-linear-to-b from-transparent to-[rgba(17,13,35,.88)] px-[18px] py-[22px] text-[15px] font-extrabold text-white">
+                    <span>Байгаль</span>
+                    <span>↗</span>
+                  </span>
+                </span>
+                <span class="absolute inset-0 flex rotate-y-180 flex-col items-center justify-center gap-[15px] overflow-hidden rounded-card bg-linear-[145deg,#8869f4,#5639bb] p-[25px] text-center text-white backface-hidden">
+                  <strong class="text-[23px]">Байгаль</strong>
+                  <span class="text-sm">Байгалийн үзэсгэлэнт орчин.</span>
+                  <span class="text-sm">Дахин дарж буцаана уу ↻</span>
+                </span>
+              </span>
+            </button>
+          </article>
+
+          <!-- Зураг 2 -->
+          <article class="min-w-0 animate-enter overflow-hidden rounded-card border border-line bg-surface shadow-card transition duration-200 perspective-[1000px] hover:z-[1] hover:-translate-y-[7px] hover:border-brand hover:shadow-lift focus-within:z-[1] focus-within:-translate-y-[7px] focus-within:border-brand focus-within:shadow-lift" style="--i: 1">
+            <button data-flip type="button" aria-pressed="false" aria-label="Хотын амьдралын зургийг эргүүлэх"
+              class="group/flip block aspect-[4/3] w-full cursor-pointer text-left perspective-[1000px] max-sm:aspect-[5/3]">
+              <span class="relative block size-full transition-transform duration-700 ease-flip transform-3d group-aria-pressed/flip:rotate-y-180">
+                <span class="absolute inset-0 flex flex-col justify-end overflow-hidden rounded-card bg-soft backface-hidden">
+                  <img src="img/photo2.jpg" width="800" height="600" alt="Хотын орчин, барилгууд" loading="lazy"
+                    class="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover/flip:scale-[1.07]">
+                  <span class="absolute left-3.5 top-3.5 z-[2] grid size-9 place-items-center rounded-[11px] bg-[rgba(25,20,50,.65)] text-xs font-extrabold text-white">02</span>
+                  <span class="absolute inset-x-0 bottom-0 z-[2] bg-linear-to-b from-transparent to-[rgba(17,13,35,.88)] px-[18px] py-[22px] text-[15px] font-extrabold text-white">
+                    <span>Хотын амьдрал</span>
+                    <span>↗</span>
+                  </span>
+                </span>
+                <span class="absolute inset-0 flex rotate-y-180 flex-col items-center justify-center gap-[15px] overflow-hidden rounded-card bg-linear-[145deg,#8869f4,#5639bb] p-[25px] text-center text-white backface-hidden">
+                  <strong class="text-[23px]">Хотын амьдрал</strong>
+                  <span class="text-sm">Орчин үеийн хотын өнгө төрх.</span>
+                  <span class="text-sm">Дахин дарж буцаана уу ↻</span>
+                </span>
+              </span>
+            </button>
+          </article>
+
+          <!-- Зураг 3 -->
+          <article class="min-w-0 animate-enter overflow-hidden rounded-card border border-line bg-surface shadow-card transition duration-200 perspective-[1000px] hover:z-[1] hover:-translate-y-[7px] hover:border-brand hover:shadow-lift focus-within:z-[1] focus-within:-translate-y-[7px] focus-within:border-brand focus-within:shadow-lift" style="--i: 2">
+            <button data-flip type="button" aria-pressed="false" aria-label="Суралцах орчны зургийг эргүүлэх"
+              class="group/flip block aspect-[4/3] w-full cursor-pointer text-left perspective-[1000px] max-sm:aspect-[5/3]">
+              <span class="relative block size-full transition-transform duration-700 ease-flip transform-3d group-aria-pressed/flip:rotate-y-180">
+                <span class="absolute inset-0 flex flex-col justify-end overflow-hidden rounded-card bg-soft backface-hidden">
+                  <img src="img/photo3.jpg" width="800" height="600" alt="Ном, компьютер бүхий суралцах орчин" loading="lazy"
+                    class="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover/flip:scale-[1.07]">
+                  <span class="absolute left-3.5 top-3.5 z-[2] grid size-9 place-items-center rounded-[11px] bg-[rgba(25,20,50,.65)] text-xs font-extrabold text-white">03</span>
+                  <span class="absolute inset-x-0 bottom-0 z-[2] bg-linear-to-b from-transparent to-[rgba(17,13,35,.88)] px-[18px] py-[22px] text-[15px] font-extrabold text-white">
+                    <span>Суралцах орчин</span>
+                    <span>↗</span>
+                  </span>
+                </span>
+                <span class="absolute inset-0 flex rotate-y-180 flex-col items-center justify-center gap-[15px] overflow-hidden rounded-card bg-linear-[145deg,#8869f4,#5639bb] p-[25px] text-center text-white backface-hidden">
+                  <strong class="text-[23px]">Суралцах орчин</strong>
+                  <span class="text-sm">Мэдлэг олж авах орчин.</span>
+                  <span class="text-sm">Дахин дарж буцаана уу ↻</span>
+                </span>
+              </span>
+            </button>
+          </article>
+
+          <!-- Зураг 4 -->
+          <article class="min-w-0 animate-enter overflow-hidden rounded-card border border-line bg-surface shadow-card transition duration-200 perspective-[1000px] hover:z-[1] hover:-translate-y-[7px] hover:border-brand hover:shadow-lift focus-within:z-[1] focus-within:-translate-y-[7px] focus-within:border-brand focus-within:shadow-lift" style="--i: 3">
+            <button data-flip type="button" aria-pressed="false" aria-label="Аяллын зургийг эргүүлэх"
+              class="group/flip block aspect-[4/3] w-full cursor-pointer text-left perspective-[1000px] max-sm:aspect-[5/3]">
+              <span class="relative block size-full transition-transform duration-700 ease-flip transform-3d group-aria-pressed/flip:rotate-y-180">
+                <span class="absolute inset-0 flex flex-col justify-end overflow-hidden rounded-card bg-soft backface-hidden">
+                  <img src="img/photo4.jpg" width="800" height="600" alt="Аяллын үзэсгэлэнт газар" loading="lazy"
+                    class="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover/flip:scale-[1.07]">
+                  <span class="absolute left-3.5 top-3.5 z-[2] grid size-9 place-items-center rounded-[11px] bg-[rgba(25,20,50,.65)] text-xs font-extrabold text-white">04</span>
+                  <span class="absolute inset-x-0 bottom-0 z-[2] bg-linear-to-b from-transparent to-[rgba(17,13,35,.88)] px-[18px] py-[22px] text-[15px] font-extrabold text-white">
+                    <span>Аялал</span>
+                    <span>↗</span>
+                  </span>
+                </span>
+                <span class="absolute inset-0 flex rotate-y-180 flex-col items-center justify-center gap-[15px] overflow-hidden rounded-card bg-linear-[145deg,#8869f4,#5639bb] p-[25px] text-center text-white backface-hidden">
+                  <strong class="text-[23px]">Аялал</strong>
+                  <span class="text-sm">Шинэ газар, шинэ дурсамж.</span>
+                  <span class="text-sm">Дахин дарж буцаана уу ↻</span>
+                </span>
+              </span>
+            </button>
+          </article>
+
+          <!-- Зураг 5 -->
+          <article class="min-w-0 animate-enter overflow-hidden rounded-card border border-line bg-surface shadow-card transition duration-200 perspective-[1000px] hover:z-[1] hover:-translate-y-[7px] hover:border-brand hover:shadow-lift focus-within:z-[1] focus-within:-translate-y-[7px] focus-within:border-brand focus-within:shadow-lift" style="--i: 4">
+            <button data-flip type="button" aria-pressed="false" aria-label="Архитектурын зургийг эргүүлэх"
+              class="group/flip block aspect-[4/3] w-full cursor-pointer text-left perspective-[1000px] max-sm:aspect-[5/3]">
+              <span class="relative block size-full transition-transform duration-700 ease-flip transform-3d group-aria-pressed/flip:rotate-y-180">
+                <span class="absolute inset-0 flex flex-col justify-end overflow-hidden rounded-card bg-soft backface-hidden">
+                  <img src="img/photo5.jpg" width="800" height="600" alt="Орчин үеийн архитектур" loading="lazy"
+                    class="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover/flip:scale-[1.07]">
+                  <span class="absolute left-3.5 top-3.5 z-[2] grid size-9 place-items-center rounded-[11px] bg-[rgba(25,20,50,.65)] text-xs font-extrabold text-white">05</span>
+                  <span class="absolute inset-x-0 bottom-0 z-[2] bg-linear-to-b from-transparent to-[rgba(17,13,35,.88)] px-[18px] py-[22px] text-[15px] font-extrabold text-white">
+                    <span>Архитектур</span>
+                    <span>↗</span>
+                  </span>
+                </span>
+                <span class="absolute inset-0 flex rotate-y-180 flex-col items-center justify-center gap-[15px] overflow-hidden rounded-card bg-linear-[145deg,#8869f4,#5639bb] p-[25px] text-center text-white backface-hidden">
+                  <strong class="text-[23px]">Архитектур</strong>
+                  <span class="text-sm">Орчин үеийн барилгын загвар.</span>
+                  <span class="text-sm">Дахин дарж буцаана уу ↻</span>
+                </span>
+              </span>
+            </button>
+          </article>
+
+          <!-- Зураг 6 -->
+          <article class="min-w-0 animate-enter overflow-hidden rounded-card border border-line bg-surface shadow-card transition duration-200 perspective-[1000px] hover:z-[1] hover:-translate-y-[7px] hover:border-brand hover:shadow-lift focus-within:z-[1] focus-within:-translate-y-[7px] focus-within:border-brand focus-within:shadow-lift" style="--i: 5">
+            <button data-flip type="button" aria-pressed="false" aria-label="Бүтээлч байдлын зургийг эргүүлэх"
+              class="group/flip block aspect-[4/3] w-full cursor-pointer text-left perspective-[1000px] max-sm:aspect-[5/3]">
+              <span class="relative block size-full transition-transform duration-700 ease-flip transform-3d group-aria-pressed/flip:rotate-y-180">
+                <span class="absolute inset-0 flex flex-col justify-end overflow-hidden rounded-card bg-soft backface-hidden">
+                  <img src="img/photo6.jpg" width="800" height="600" alt="Бүтээлч санаа, дизайн" loading="lazy"
+                    class="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover/flip:scale-[1.07]">
+                  <span class="absolute left-3.5 top-3.5 z-[2] grid size-9 place-items-center rounded-[11px] bg-[rgba(25,20,50,.65)] text-xs font-extrabold text-white">06</span>
+                  <span class="absolute inset-x-0 bottom-0 z-[2] bg-linear-to-b from-transparent to-[rgba(17,13,35,.88)] px-[18px] py-[22px] text-[15px] font-extrabold text-white">
+                    <span>Бүтээлч байдал</span>
+                    <span>↗</span>
+                  </span>
+                </span>
+                <span class="absolute inset-0 flex rotate-y-180 flex-col items-center justify-center gap-[15px] overflow-hidden rounded-card bg-linear-[145deg,#8869f4,#5639bb] p-[25px] text-center text-white backface-hidden">
+                  <strong class="text-[23px]">Бүтээлч байдал</strong>
+                  <span class="text-sm">Шинэ санааг бодит бүтээл болго.</span>
+                  <span class="text-sm">Дахин дарж буцаана уу ↻</span>
+                </span>
+              </span>
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="bg-page py-16 max-sm:py-[46px]">
+      <div class="wrap">
+
+        <div class="mb-[30px]">
+          <span class="mb-3.5 inline-block text-[11px] font-extrabold tracking-[2px] text-brand">ХАРИЛЦАН ҮЙЛДЭЛ ЗАГВАР</span>
+          <h2 class="text-[clamp(28px,4vw,38px)] font-extrabold leading-[1.2] tracking-[-1px] max-sm:text-[30px]">Вебийн онцлогууд</h2>
+          <p class="mt-[9px] text-sm text-muted">3D хувиргалт ашигласан картыг товч дарж эргүүлээрэй.</p>
+        </div>
+
+        <div class="grid grid-cols-3 gap-5 max-md:grid-cols-2 max-sm:grid-cols-1 max-sm:gap-4">
+
+          <article class="rounded-card border border-line bg-surface p-[26px] shadow-card transition duration-200 hover:-translate-y-[5px] hover:border-brand hover:shadow-lift max-sm:p-[22px]">
+            <span class="mb-5 grid size-12 place-items-center rounded-[15px] bg-soft text-[23px] text-brand" aria-hidden="true">✦</span>
+            <h3 class="text-lg font-bold">Хөдөлгөөнт эффект</h3>
+            <p class="mt-[9px] text-[13px] text-muted">Зургийн картууд дараалсан хугацаатайгаар хөдөлгөөнтэй гарч ирнэ.</p>
+            <span class="mt-[18px] inline-block rounded-lg bg-soft px-[9px] py-[5px] text-[11px] font-extrabold text-brand">Хөдөлгөөний дүрэм</span>
+          </article>
+
+          <article class="rounded-card border border-line bg-surface p-[26px] shadow-card transition duration-200 hover:-translate-y-[5px] hover:border-brand hover:shadow-lift max-sm:p-[22px]">
+            <span class="mb-5 grid size-12 place-items-center rounded-[15px] bg-soft text-[23px] text-brand" aria-hidden="true">↗</span>
+            <h3 class="text-lg font-bold">Хувиргалт</h3>
+            <p class="mt-[9px] text-[13px] text-muted">Хулганаар сонгох үед картын хэмжээ, байрлал зөөлөн өөрчлөгдөнө.</p>
+            <span class="mt-[18px] inline-block rounded-lg bg-soft px-[9px] py-[5px] text-[11px] font-extrabold text-brand">Шилжилтийн эффект</span>
+          </article>
+
+          <article class="rounded-card border border-line bg-surface p-[26px] shadow-card transition duration-200 hover:-translate-y-[5px] hover:border-brand hover:shadow-lift max-sm:p-[22px]">
+            <span class="mb-5 grid size-12 place-items-center rounded-[15px] bg-soft text-[23px] text-brand" aria-hidden="true">◈</span>
+            <h3 class="text-lg font-bold">CSS хувьсагч</h3>
+            <p class="mt-[9px] text-[13px] text-muted">Өнгө, зай болон загварын утгуудыг нэг дороос удирдана.</p>
+            <span class="mt-[18px] inline-block rounded-lg bg-soft px-[9px] py-[5px] text-[11px] font-extrabold text-brand">Загварын тохиргоо</span>
+          </article>
+
+        </div>
+
+        <!-- 3D CARD -->
+        <div class="mt-[55px] flex flex-col items-center text-center max-sm:mt-10">
+
+          <div class="h-[250px] w-[min(100%,380px)] perspective-[1000px] max-sm:h-60">
+            <div id="flipCard" data-flipped="false"
+              class="relative size-full transition-transform duration-700 ease-flip transform-3d data-[flipped=true]:rotate-y-180">
+
+              <div class="absolute inset-0 flex flex-col items-center justify-center overflow-hidden rounded-[28px] border border-line bg-linear-[145deg,#8869f4,#5639bb] p-7 text-white shadow-card backface-hidden">
+                <span class="text-[10px] font-extrabold tracking-[2px] opacity-80">ОЮУТНЫ ӨРГӨӨ</span>
+                <span class="my-[5px] text-[52px]" aria-hidden="true">✧</span>
+                <h3 class="text-2xl font-bold">Шинэ зүйл сур</h3>
+                <p class="mt-2 text-[13px] opacity-85">Картын ар талыг харахын тулд товч дарна уу.</p>
+              </div>
+
+              <div class="absolute inset-0 flex rotate-y-180 flex-col items-center justify-center overflow-hidden rounded-[28px] border border-line bg-linear-[145deg,#27203f,#171522] p-7 text-white shadow-card backface-hidden" aria-hidden="true">
+                <span class="text-[10px] font-extrabold tracking-[2px] opacity-80">ХӨГЖСӨӨР БАЙ</span>
+                <span class="my-[5px] text-[52px]" aria-hidden="true">✦</span>
+                <h3 class="text-2xl font-bold">Өдөр бүр хөгж</h3>
+                <p class="mt-2 text-[13px] opacity-85">Суралцах, турших, бүтээх нь амжилтын эхлэл.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <button id="flipToggle" type="button" aria-pressed="false"
+            class="mt-[22px] inline-flex min-h-12 cursor-pointer items-center justify-center gap-3 rounded-[14px] border border-brand bg-brand px-[22px] py-3 text-sm font-bold text-white transition duration-200 hover:-translate-y-[3px] hover:border-brand-dark hover:bg-brand-dark hover:shadow-lift">
+            Картыг эргүүлэх
+          </button>
+
+          <p id="flipStatus" aria-live="polite" class="mt-2.5 min-h-[25px] text-xs text-muted">
+            Картын урд тал харагдаж байна.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA -->
+    <section id="media" class="bg-surface py-16 max-sm:py-[46px]">
+      <div class="wrap">
+
+        <div class="mb-[30px]">
+          <span class="mb-3.5 inline-block text-[11px] font-extrabold tracking-[2px] text-brand">ВИДЕО · ХАДМАЛ · ДҮРСЛЭЛ</span>
+          <h2 class="text-[clamp(28px,4vw,38px)] font-extrabold leading-[1.2] tracking-[-1px] max-sm:text-[30px]">Олон төрлийн медиа</h2>
+          <p class="mt-[9px] text-sm text-muted">Видео тоглуулагч, хадмал, гадаад видео болон SVG дүрслэлийн жишээ.</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-[22px] max-sm:grid-cols-1 max-sm:gap-4">
+
+          <!-- HTML5 VIDEO -->
+          <article class="min-w-0 rounded-card border border-line bg-page p-[22px] max-sm:p-[15px]">
+            <div class="mb-[18px] flex items-center gap-[13px]">
+              <span class="grid size-[42px] shrink-0 place-items-center rounded-[13px] bg-soft text-[19px] text-brand" aria-hidden="true">▶</span>
+              <div>
+                <h3 class="text-base font-bold">Видео тоглуулагч</h3>
+                <p class="mt-[3px] text-xs text-muted">Өөрийн видео файлыг тоглуулаарай.</p>
+              </div>
+            </div>
+
+            <video class="block max-h-[340px] w-full rounded-xl bg-[#111]" controls preload="metadata" poster="img/photo3.jpg">
+              <source src="video/clip.mp4" type="video/mp4">
+              <source src="video/clip.webm" type="video/webm">
+              <track src="video/clip.mn.vtt" kind="captions" srclang="mn" label="Монгол хадмал" default>
+              Таны хөтөч видео тоглуулах боломжгүй байна.
+            </video>
+          </article>
+
+          <!-- SVG -->
+          <article class="min-w-0 rounded-card border border-line bg-page p-[22px] max-sm:p-[15px]">
+            <div class="mb-[18px] flex items-center gap-[13px]">
+              <span class="grid size-[42px] shrink-0 place-items-center rounded-[13px] bg-soft text-[19px] text-brand" aria-hidden="true">◎</span>
+              <div>
+                <h3 class="text-base font-bold">SVG дүрслэл</h3>
+                <p class="mt-[3px] text-xs text-muted">HTML дотор шууд зурсан дүрс.</p>
+              </div>
+            </div>
+
+            <div class="grid min-h-[220px] place-items-center overflow-hidden rounded-xl border border-line bg-surface bg-[radial-gradient(circle_at_50%_50%,var(--surface-soft),transparent_72%)] text-brand">
+              <svg viewBox="0 0 320 180" role="img" aria-labelledby="svgTitle svgDesc" class="h-auto w-[min(100%,340px)]">
+                <title id="svgTitle">Оюутны Өргөөний дүрс</title>
+                <desc id="svgDesc">Нил ягаан дугуй, од болон чимэглэлийн дүрсээс бүрдсэн зураг.</desc>
+                <defs>
+                  <linearGradient id="svgGradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#a78bfa"/>
+                    <stop offset="100%" stop-color="#6d4aff"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="160" cy="90" r="66" fill="url(#svgGradient)"/>
+                <circle cx="160" cy="90" r="47" fill="none" stroke="white" stroke-opacity=".55" stroke-width="2"/>
+                <path d="M160 48 L171 76 L201 77 L178 96 L186 125 L160 108 L134 125 L142 96 L119 77 L149 76 Z" fill="white"/>
+                <circle cx="245" cy="40" r="9" fill="#f6c66a"/>
+                <circle cx="75" cy="130" r="6" fill="#f6c66a"/>
+                <path d="M42 43 L63 43 M52.5 32.5 L52.5 53.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </article>
+
+          <!-- IFRAME -->
+          <article class="min-w-0 rounded-card border border-line bg-page p-[22px] max-sm:p-[15px]">
+            <div class="mb-[18px] flex items-center gap-[13px]">
+              <span class="grid size-[42px] shrink-0 place-items-center rounded-[13px] bg-soft text-[19px] text-brand" aria-hidden="true">▣</span>
+              <div>
+                <h3 class="text-base font-bold">Гадаад видео</h3>
+                <p class="mt-[3px] text-xs text-muted">Интернэтээс оруулсан видео.</p>
+              </div>
+            </div>
+
+            <div class="relative aspect-video w-full overflow-hidden rounded-xl bg-[#111]">
+              <iframe
+                class="absolute inset-0 size-full"
+                src="https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ"
+                title="Жишээ видео"
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin allow-presentation"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="encrypted-media; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section id="contact" class="py-16 max-sm:py-[46px]">
+      <div class="wrap">
+
+        <div class="mb-[30px]">
+          <span class="mb-3.5 inline-block text-[11px] font-extrabold tracking-[2px] text-brand">ХОЛБОО БАРИХ</span>
+          <h2 class="text-[clamp(28px,4vw,38px)] font-extrabold leading-[1.2] tracking-[-1px] max-sm:text-[30px]">Санал хүсэлт илгээх</h2>
+          <p class="mt-[9px] text-sm text-muted">Мэдээллээ бөглөөд илгээнэ үү.</p>
+        </div>
+
+        <form class="group/form needs-validation" novalidate>
+
+          <div class="mb-4">
+            <label for="studentName" class="mb-2 block">Нэр</label>
+            <input type="text" id="studentName" placeholder="Нэрээ оруулна уу" required
+              class="peer block w-full rounded-md border border-line bg-surface px-3 py-1.5 text-ink outline-none focus:border-brand focus:ring-4 focus:ring-brand/25 group-[.was-validated]/form:invalid:border-red-500 group-[.was-validated]/form:valid:border-green-600">
+            <div class="mt-1 hidden text-sm text-red-500 group-[.was-validated]/form:peer-invalid:block">Нэрээ заавал оруулна уу.</div>
+          </div>
+
+          <div class="mb-4">
+            <label for="studentEmail" class="mb-2 block">И-мэйл</label>
+            <input type="email" id="studentEmail" placeholder="name@example.com" required
+              class="peer block w-full rounded-md border border-line bg-surface px-3 py-1.5 text-ink outline-none focus:border-brand focus:ring-4 focus:ring-brand/25 group-[.was-validated]/form:invalid:border-red-500 group-[.was-validated]/form:valid:border-green-600">
+            <div class="mt-1 hidden text-sm text-red-500 group-[.was-validated]/form:peer-invalid:block">Зөв и-мэйл хаяг оруулна уу.</div>
+          </div>
+
+          <div class="mb-4">
+            <label for="studentMessage" class="mb-2 block">Зурвас</label>
+            <textarea id="studentMessage" rows="4" placeholder="Зурвасаа бичнэ үү" required
+              class="peer block w-full rounded-md border border-line bg-surface px-3 py-1.5 text-ink outline-none focus:border-brand focus:ring-4 focus:ring-brand/25 group-[.was-validated]/form:invalid:border-red-500 group-[.was-validated]/form:valid:border-green-600"></textarea>
+            <div class="mt-1 hidden text-sm text-red-500 group-[.was-validated]/form:peer-invalid:block">Зурвасаа бичнэ үү.</div>
+          </div>
+
+          <button type="submit"
+            class="inline-flex min-h-12 cursor-pointer items-center justify-center gap-3 rounded-[14px] border border-brand bg-brand px-[22px] py-3 text-sm font-bold text-white transition duration-200 hover:-translate-y-[3px] hover:border-brand-dark hover:bg-brand-dark hover:shadow-lift">
+            Илгээх →
+          </button>
+
+          <p id="formStatus" class="mt-4" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-linear-[115deg,#5c3bc4,#8c6af4] py-[45px] text-white">
+      <div class="wrap flex items-center justify-between gap-[30px] max-sm:flex-col
